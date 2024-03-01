@@ -23,7 +23,7 @@ tracker_store:
     url: "postgres:5432"  # (optional) host of the sql db, e.g. "localhost"
     db: "rasa"  # path to your db
     username: "root"  # username used for authentication
-    password: "someotherpassword4444##"  # password used for authentication
+    password: "root"  # password used for authentication
     login_db: "postgres"  # needed to create rasa.db
 
 #tracker_store:

@@ -10,262 +10,100 @@ rules:
   - action: action_end_dialog
 
 
-- rule: start session 1 and successful session load
+- rule: start session predeliberation safety
   steps:
-  - intent: start_session1
-  - action: action_load_session_first
-  - slot_was_set:
-    - session_loaded: true
-  - action: utter_greet_first_time
-  - action: user_name_form
-  - active_loop: user_name_form
-  wait_for_user_input: false
-  
-- rule: start session 1 and unsuccessful session load
-  steps:
-  - intent: start_session1
-  - action: action_load_session_first
-  - slot_was_set:
-    - session_loaded: false
-  - action: utter_default_close_session
-  - action: action_end_dialog
-    
-  
-- rule: name session 1
-  condition:
-    - active_loop: user_name_form
-  steps:
-  - action: user_name_form
-  - active_loop: null
-  - action: action_check_nameslot
-  - action: utter_confirm_name
-  - action: utter_ask_for_mood_session1
-  
-- rule: mood session 1 
-  steps:
-  - intent: mood_curr_session1
-  - action: utter_mood_response
-  - action: action_save_name_to_db
-  - action: utter_purpose_1
-  - action: utter_purpose_2
-  - action: utter_purpose_3
-  - action: utter_purpose_4
-  - action: utter_purpose_5
-  
-- rule: intro human coach session 1
-  steps:
-  - intent: confirm_purpose
-  - action: utter_explain_human_feedback
-  - action: utter_human_coach_introduction_prep
-  - action: human_coach_introduction_form
-  - active_loop: human_coach_introduction_form
-  wait_for_user_input: false
-    
-- rule: usage session 1
-  condition:
-    - active_loop: human_coach_introduction_form
-  steps:
-  - action: human_coach_introduction_form
-  - active_loop: null
-  - action: utter_prompt_usage
-  - action: utter_explain_usage
-
-- rule: intro session 1
-  steps:
-  - intent: confirm_usage
-  - action: utter_intro_session1_1
-  - action: utter_intro_session1_2
-  - action: utter_intro_session1_3
-  - action: utter_intro_session1_4
-  - action: utter_intro_session1_5
-  - action: utter_intro_session1_6
-  - action: utter_intro_session1_7
-  
-- rule: state questions session 1
-  steps:
-  - intent: confirm_intro_session1
-  - action: utter_state_question_intro
-  - action: utter_state_question_intro_2
-  - action: utter_state_question_importance
-  
-
-- rule: start session mid (2, 3, 4) session loaded
-  steps:
-  - intent: start_session_mid
-  - action: action_load_session_not_first
-  - slot_was_set: 
-    - session_loaded: true
-  - action: utter_greet_repeat
-  - action: utter_ask_for_mood_session_mid
-  
-- rule: start session mid (2, 3, 4) session not loaded so end dialog
-  steps:
-  - intent: start_session_mid
-  - action: action_load_session_not_first
-  - slot_was_set: 
-    - session_loaded: false
-  - action: utter_default_close_session
-  - action: action_end_dialog
-  
-
-- rule: start session last session loaded
-  steps:
-  - intent: start_session_last
-  - action: action_load_session_not_first
-  - slot_was_set: 
-    - session_loaded: true
-  - action: utter_greet_repeat
-  - action: utter_ask_for_mood_session_last
-  
-- rule: start session last session not loaded so end dialog
-  steps:
-  - intent: start_session_last
-  - action: action_load_session_not_first
-  - slot_was_set: 
-    - session_loaded: false
-  - action: utter_default_close_session
-  - action: action_end_dialog
-  
-  
-- rule: mood and intro session mid
-  steps:
-  - intent: mood_curr_session_mid
-  - action: utter_mood_response
-  - action: utter_intro_session_mid_1
-  - action: utter_intro_session_mid_2
-  - action: utter_intro_session_mid_3
-  - action: utter_intro_session_mid_4
-  - action: utter_intro_session_mid_5
-  
-  
-- rule: mood and intro session last
-  steps:
-  - intent: mood_curr_session_last
-  - action: utter_mood_response
-  - action: utter_intro_session_last_1
-  - action: utter_intro_session_last_2
-  - action: utter_intro_session_last_3
-  - action: utter_intro_session_last_4
-  
-
-- rule: activity effort session notfirst
-  steps:
-  - intent: confirm_intro_session_notfirst
-  - action: utter_last_activity_short
-  - action: utter_last_activity_effort_intro
-  - action: utter_last_activity_effort
-  
-
-- rule: activity experience
-  steps:
-  - intent: effort_answer
-  - action: utter_respond_effort
-  - action: activity_experience_form
-  - active_loop: activity_experience_form
-  wait_for_user_input: false
-  
-- rule: activity experience ask add or change
-  condition:
-    - active_loop: activity_experience_form
-  steps:
-  - action: activity_experience_form
-  - active_loop: null
-  - action: utter_repeat_activity_completion_answer
-  
-- rule: activity experience confirmed so give dropout question
-  steps:
-  - intent: confirm_activity_experience
-  - action: utter_great
-  - action: utter_ask_dropout
-  
-- rule: response dropout question and start state questions
-  steps:
-  - intent: confirm_dropout
-  - action: action_save_activity_experience
-  - action: utter_thanks
-  - action: utter_state_question_intro
-  - action: utter_state_question_intro_2
-  - action: utter_state_question_importance
-  
-- rule: activity experience denied
-  steps:
-  - intent: deny_activity_experience
-  - action: activity_experience_mod_form
-  - active_loop: activity_experience_mod_form
+  - intent: start_session_predeliberation
+  - action: utter_intro_delibot
+  - intent: confirm_intro
+  - action: utter_present_scenario
+  - intent: confirm_scenario_read
+  - action: utter_ask_options
+  - intent: confirm_option_chosen_safety
+  - action: utter_ask_option_reasons_safety
+  - intent: confirm_option_reason_chosen
+  - action: utter_ask_ai_impact
+  - intent: confirm_ai_impact
+  - action: reflection_form
+  - active_loop: reflection_form
   wait_for_user_input: false
   
   
-- rule: activity experience modified so give dropout question
+- rule: start session predeliberation privacy
+  steps:
+  - intent: start_session_predeliberation
+  - action: utter_intro_delibot
+  - intent: confirm_intro
+  - action: utter_present_scenario
+  - intent: confirm_scenario_read
+  - action: utter_ask_options
+  - intent: confirm_option_chosen_privacy
+  - action: utter_ask_option_reasons_privacy
+  - intent: confirm_option_reason_chosen
+  - action: utter_ask_ai_impact
+  - intent: confirm_ai_impact
+  - action: reflection_form
+  - active_loop: reflection_form
+  wait_for_user_input: false
+  
+
+- rule: start session predeliberation societal wellbeing
+  steps:
+  - intent: start_session_predeliberation
+  - action: utter_intro_delibot
+  - intent: confirm_intro
+  - action: utter_present_scenario
+  - intent: confirm_scenario_read
+  - action: utter_ask_options
+  - intent: confirm_option_chosen_societal_wellbeing
+  - action: utter_ask_option_reasons_societal_wellbeing
+  - intent: confirm_option_reason_chosen
+  - action: utter_ask_ai_impact
+  - intent: confirm_ai_impact
+  - action: reflection_form
+  - active_loop: reflection_form
+  wait_for_user_input: false
+  
+  
+- rule: reflection given
   condition:
-    - active_loop: activity_experience_mod_form
+    - active_loop: reflection_form
   steps:
-  - action: activity_experience_mod_form
+  - action: reflection_form
   - active_loop: null
-  - action: utter_thank_activity_experience_mod
-  - action: utter_ask_dropout
-  
-
-- rule: state selfefficacy
-  steps:
-  - intent: confirm_state_importance
-  - action: utter_state_question_selfefficacy
-
-- rule: state humansupport
-  steps:
-  - intent: confirm_state_selfefficacy
-  - action: utter_state_question_humansupport
-  
-- rule: state energy
-  steps:
-  - intent: confirm_state_humansupport
-  - action: utter_intro_last_state_question
-  - action: utter_state_question_energy
-  
-- rule: end state answering
-  steps:
-  - intent: confirm_state_energy
-  - action: utter_thank_state_question_answering
-  - action: utter_transition_new_activity
-  - action: action_choose_activity
-  - action: utter_propose_new_activity_intro
-  - action: utter_activity
-  - action: utter_activity_read
-  
-# no human support
-- rule: read activity, no human support
-  steps:
-  - intent: confirm_activity_read
-  - action: utter_cool
-  - action: utter_advise_activity
-  - action: action_choose_human_support
-  - slot_was_set: 
-    - human_support_after_session: false
-  - action: utter_email_reminder
-  - action: utter_remind_next_part
-  
-# with human support
-- rule: read activity, no human support
-  steps:
-  - intent: confirm_activity_read
-  - action: utter_cool
-  - action: utter_advise_activity
-  - action: action_choose_human_support
-  - slot_was_set: 
-    - human_support_after_session: true
-  - action: utter_email_reminder
-  - action: utter_mention_human_support
-  
-- rule: confirm next part and save states to db
-  steps:
-  - intent: confirm_next_part
-  - action: action_send_email
   - action: action_save_session
-  - action: utter_prolific_link
-  - action: utter_goodbye
-  
-- rule: end
-  steps:
-  - intent: confirm_goodbye
+  - action: utter_thank_reflection
   - action: utter_final_close_session
-  - action: action_end_dialog
   
+  
+- rule: start session postdeliberation accountability
+  steps:
+  - intent: start_session_postdeliberation
+  - action: utter_intro_delibot
+  - intent: confirm_intro
+  - action: utter_present_scenario_post
+  - intent: confirm_scenario_read
+  - action: utter_ask_options_post
+  - intent: confirm_option_chosen_post_accountability
+  - action: utter_ask_option_reasons_post_accountability
+  - intent: confirm_option_reason_chosen_post
+  - action: utter_ask_alternatives_accountability
+  
+  
+- rule: alternative, accountability
+  steps:
+  - intent: confirm_alternative_yes
+  - action: utter_ask_options_post
+  - intent: confirm_option_chosen_post_accountability
+  - action: utter_ask_option_reasons_post_accountability
+  - intent: confirm_option_reason_chosen_post
+  - action: utter_ask_alternatives_accountability
+  
+  
+- rule: no alternative
+  steps:
+  - intent: confirm_alternative_no 
+  - action: utter_ask_ai_impact
+  - intent: confirm_ai_impact
+  - action: reflection_form
+  - active_loop: reflection_form
+  wait_for_user_input: false

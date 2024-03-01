@@ -32,6 +32,7 @@ policies:
 - name: MemoizationPolicy
   max_history: 8
 - name: RulePolicy  # need this if we use forms
+  restrict_rules: False
   core_fallback_threshold: 0.1 # NB: important to tune this carefully.
   core_fallback_action_name: action_default_fallback_end_dialog # will be called when confidence below above value
   enable_fallback_prediction: true
