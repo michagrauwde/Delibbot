@@ -1,0 +1,23 @@
+This is your activity reminder message from your virtual coach Kai:
+
+
+"Dear ${PERSON_NAME}, 
+
+
+This is a message to remind you of your suggested preparation activity:
+
+${ACTIVITY}
+
+
+See you in your next session!
+
+
+Best regards,
+
+Your Virtual Coach Kai"
+
+
+
+Please do not reply to this message. This is not the researcher account.
+
+

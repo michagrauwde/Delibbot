@@ -8,21 +8,47 @@ $(document).ready(function () {
 	user_id = userid;
 	//get session number
 	const session_num = urlParams.get('n');
+	//get whether participant is smoker (s = 1) or vaper (s = 0)
+	const smoker = urlParams.get('s');
 	
 	$(".widget").toggle();
 	
 	showBotTyping();
 	$('.usrInput').attr("disabled",true);
-	$(".usrInput").prop('placeholder', "Wait for DeliBot's message.");
-	
+	$(".usrInput").prop('placeholder', "Wait for Kai's message.");
 	
 	//start a session
-	if (session_num == "pre"){
-		send('/start_session_predeliberation');
-	} else if (session_num == "post"){
-		send('/start_session_postdeliberation');
+	if (session_num == "1"){
+		if (smoker == "0"){
+			send('/start_session1{"session_num":"1", "smoker":"0"}');
+		} else if (smoker == "1"){
+			send('/start_session1{"session_num":"1", "smoker":"1"}');
+		}
+	} else if (session_num == "2"){
+		if (smoker == "0"){
+			send('/start_session_mid{"session_num":"2", "smoker":"0"}');
+		} else if (smoker == "1"){
+			send('/start_session_mid{"session_num":"2", "smoker":"1"}');
+		}
+	} else if (session_num == "3"){
+		if (smoker == "0"){
+			send('/start_session_mid{"session_num":"3", "smoker":"0"}');
+		} else if (smoker == "1"){
+			send('/start_session_mid{"session_num":"3", "smoker":"1"}');
+		}
+	} else if (session_num == "4"){
+		if (smoker == "0"){
+			send('/start_session_mid{"session_num":"4", "smoker":"0"}');
+		} else if (smoker == "1"){
+			send('/start_session_mid{"session_num":"4", "smoker":"1"}');
+		}
+	} else if (session_num == "5"){
+		if (smoker == "0"){
+			send('/start_session_last{"session_num":"5", "smoker":"0"}');
+		} else if (smoker == "1"){
+			send('/start_session_last{"session_num":"5", "smoker":"1"}');
+		}
 	}
-	
 })
 
 //=====================================	user enter or sends the message =====================
@@ -75,7 +101,7 @@ function setUserResponse(message) {
 	scrollToBottomOfResults();
 	showBotTyping();
 	$('.usrInput').attr("disabled",true);
-	$(".usrInput").prop('placeholder', "Wait for DeliBot's response.");
+	$(".usrInput").prop('placeholder', "Wait for Kai's response.");
 	$(".suggestions").remove();
 }
 
@@ -208,7 +234,7 @@ function doScaledTimeout(i, response, summed_timeout) {
 		if (i < response.length - 1){
 			showBotTyping();
 			$('.usrInput').attr("disabled",true);
-			$(".usrInput").prop('placeholder', "Wait for DeliBot's response.");
+			$(".usrInput").prop('placeholder', "Wait for Kai's response.");
 		}
 	}, summed_timeout);
 }
