@@ -18,9 +18,9 @@ $(document).ready(function () {
 	
 	//start a session
 	if (session_num == "pre"){
-		send('/start_session_predeliberation');
+		send('/start_session_predeliberation{"session_num":"pre"}');
 	} else if (session_num == "post"){
-		send('/start_session_postdeliberation');
+		send('/start_session_postdeliberation{"session_num":"post"}');
 	}
 	
 })
