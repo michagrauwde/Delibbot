@@ -1,0 +1,142 @@
+version: "3.1"
+
+intents:
+### Session pre-deliberation
+- start_session_predeliberation
+- confirm_intro
+- confirm_scenario_read
+- confirm_option_chosen_safety
+- confirm_option_chosen_privacy
+- confirm_option_chosen_societal_wellbeing
+- confirm_option_reason_chosen
+- confirm_ai_impact
+
+### Post-deliberation
+- start_session_postdeliberation
+- confirm_option_chosen_post_safety
+- confirm_option_chosen_post_accountability
+- confirm_option_chosen_post_privacy
+- confirm_option_reason_chosen_post
+- confirm_alternative_yes
+- confirm_alternative_no
+
+
+slots:
+  # free-text reflection
+  reflection_slot:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: reflection_form  
+        
+
+forms:
+  reflection_form:
+    required_slots:
+        - reflection_slot
+  
+
+
+responses:
+
+  utter_intro_delibot:
+  - buttons:
+    - payload: /confirm_intro
+      title: "Yes"
+    text: "Hi, my name is DelibBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
+  utter_present_scenario:
+  - buttons:
+    - payload: /confirm_scenario_read
+      title: "I'm ready"
+    text: "Here is a scenario. Please let me know when you have looked at it and we can talk about the scenario."
+  utter_ask_options:
+   - buttons:
+     - payload: /confirm_option_chosen_safety
+       title: "The employee should use the facial recognition software to search the man in the database to see if any incidents are connected to the man."
+     - payload: /confirm_option_chosen_privacy
+       title: "The employee should not use the database but should send someone to approach the man."
+     - payload: /confirm_option_chosen_societal_wellbeing
+       title: "The employee should deploy workers in the station to ask the fellow travellers to stay clear of the man."
+     text: "What should the employee do in this scenario?"
+  utter_ask_option_reasons:
+   - buttons:
+     - payload: /confirm_option_reason_chosen
+       title: "I find it important that the man is apprehended as quickly as possible."
+     - payload: /confirm_option_reason_chosen
+       title: "If we can figure out who the man is without approaching him, we can keep our employees safe from a distance."
+     - payload: /confirm_option_reason_chosen
+       title: "If we use the software, we can figure out who the man is and then make decisions then keeping everyone safe."
+     text: "Why did you choose this option?"
+  utter_ask_ai_impact:
+   - buttons:
+     - payload: /confirm_ai_impact
+       title: "It did."
+     - payload: /confirm_ai_impact
+       title: "It did not."
+     text: "How did the use of AI impact your decision?"
+
+  utter_ask_reflection_slot:
+  - text: "Can you expand on your choice and why AI did or did not impact your decision? Which values impacted your choices?"
+  utter_thank_reflection:
+  - text: "Thank you for sharing your reflection and interacting with me."
+  
+  
+  
+  utter_present_scenario_post:
+  - buttons:
+    - payload: /confirm_scenario_read
+      title: "I'm ready"
+    text: "Here is a scenario. Please let me know when you have looked at it and we can talk about the scenario."
+  utter_ask_options_post:
+   - buttons:
+     - payload: /confirm_option_chosen_post_safety
+       title: "The operator should use gait/object recognition to track the figure on the camera."
+     - payload: /confirm_option_chosen_post_accountability
+       title: "The operator should always have the ability to track the figures using the cameras that are integrated together."
+     - payload: /confirm_option_chosen_post_privacy
+       title: "If the operator uses the system, a lot of other people may also be spotted on the camera, thus invading those people’s privacy."
+     text: "What should the police in the HeadQuarters do?"
+  utter_ask_option_reasons_post_accountability:
+   - buttons:
+     - payload: /confirm_option_reason_chosen_post
+       title: "If the system exists, someone should be able to use the system for its job."
+     - payload: /confirm_option_reason_chosen_post
+       title: "If the person uses the system, then they can immediately react to anything that the system catches."
+     - payload: /confirm_option_reason_chosen_post
+       title: "The operator is accountable for using the system for its purpose and should be held accountable if they use it wrong."
+     text: "Why did you choose this option?"
+  utter_ask_alternatives_accountability:
+  - buttons:
+    - payload: /confirm_alternative_yes
+      title: "Yes"
+    - payload: /confirm_alternative_no
+      title: "No"
+    text: "Accountability is important but aren’t safety and privacy more important?"
+  
+  
+
+  utter_default_close_session:
+  - text: "PLEASE CLOSE THIS WINDOW AND CONTACT THE RESEARCHER."
+  
+  utter_default:
+  - text: "There is a problem with this session."
+  
+  utter_provide_more_detail:
+  - text: "Hmm, can you describe this in a bit more detail?"
+  - text: "I see, could you elaborate a little more on this?"
+  - text: "I'd like to understand better, can you give me more details on this?"
+  
+  
+  utter_final_close_session:
+  - text: "THIS IS THE END OF THIS SESSION. PLEASE CLOSE THIS WINDOW."
+ 
+
+actions:
+
+- validate_reflection_form
+
+- action_end_dialog
+- action_default_fallback_end_dialog

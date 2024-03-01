@@ -1,0 +1,59 @@
+version: '3.0'
+services:
+    rasa:
+      container_name: "rasa_server"
+      build: 
+        context: backend
+      restart: always
+      ports:
+        - "5005:5005"
+    action-server:
+      container_name: "action_server"
+      build: 
+        context: actions
+      restart: always
+      volumes:
+        - ./actions:/app/actions
+      ports:
+        - "5055:5055"
+    chatbotui:
+      container_name: "chatbot_ui"
+      build: 
+        context: frontend
+      restart: always
+      ports: 
+        - "3000:3000"
+    mysql:
+      container_name: "db"
+      build:
+        context: db
+      restart: always
+      environment:
+        MYSQL_DATABASE: "db"
+        MYSQL_ROOT_PASSWORD: 'password'
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./data_mysql:/var/lib/mysql
+    postgres:
+      container_name: "postgres"
+      image: postgres:latest
+      restart: always
+      environment:
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: root
+      volumes:
+       - ./data:/var/lib/postgresql/data
+      ports:
+      - "5432:5432"
+    nginx:
+      container_name: "nginx"
+      image: nginx
+      volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf
+      ports:
+        - 80:80
+      depends_on: 
+        - rasa
+        - action-server
+        - chatbotui

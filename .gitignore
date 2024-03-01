@@ -1,0 +1,6 @@
+.config
+.git
+.keras
+.spyproject
+actions/__pycache__
+backend/.rasa

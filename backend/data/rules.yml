@@ -1,0 +1,89 @@
+version: "3.1"
+
+rules:
+
+- rule: handle message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: utter_default_close_session
+  - action: action_end_dialog
+
+
+- rule: start session predeliberation safety
+  steps:
+  - intent: start_session_predeliberation
+  - action: utter_intro_delibot
+  - intent: confirm_intro
+  - action: utter_present_scenario
+  - intent: confirm_scenario_read
+  - action: utter_ask_options
+  - intent: confirm_option_chosen_safety
+  - action: utter_ask_option_reasons
+  - intent: confirm_option_reason_chosen
+  - action: utter_ask_ai_impact
+  - intent: confirm_ai_impact
+  - action: reflection_form
+  - active_loop: reflection_form
+  wait_for_user_input: false
+  
+  
+- rule: start session predeliberation privacy
+  steps:
+  - intent: start_session_predeliberation
+  - action: utter_intro_delibot
+  - intent: confirm_intro
+  - action: utter_present_scenario
+  - intent: confirm_scenario_read
+  - action: utter_ask_options
+  - intent: confirm_option_chosen_privacy
+  - action: utter_final_close_session
+  
+  
+- rule: reflection given
+  condition:
+    - active_loop: reflection_form
+  steps:
+  - action: reflection_form
+  - active_loop: null
+  - action: utter_thank_reflection
+  - action: utter_final_close_session
+  
+  
+- rule: start session postdeliberation accountability, alternative, no alternative
+  steps:
+  - intent: start_session_postdeliberation
+  - action: utter_intro_delibot
+  - intent: confirm_intro
+  - action: utter_present_scenario_post
+  - intent: confirm_scenario_read
+  - action: utter_ask_options_post
+  - intent: confirm_option_chosen_post_accountability
+  - action: utter_ask_option_reasons_post_accountability
+  - intent: confirm_option_reason_chosen_post
+  - action: utter_ask_alternatives_accountability
+  - intent: confirm_alternative_yes
+  - action: utter_ask_options_post
+  - intent: confirm_option_chosen_post_accountability
+  - action: utter_ask_option_reasons_post_accountability
+  - intent: confirm_option_reason_chosen_post
+  
+  
+- rule: start session postdeliberation accountability, no alternative
+  steps:
+  - intent: start_session_postdeliberation
+  - action: utter_intro_delibot
+  - intent: confirm_intro
+  - action: utter_present_scenario_post
+  - intent: confirm_scenario_read
+  - action: utter_ask_options_post
+  - intent: confirm_option_chosen_post_accountability
+  - action: utter_ask_option_reasons_post_accountability
+  - intent: confirm_option_reason_chosen_post
+  - action: utter_ask_alternatives_accountability
+  - intent: confirm_alternative_no 
+  - action: utter_ask_ai_impact
+  - intent: confirm_ai_impact
+  - action: reflection_form
+  - active_loop: reflection_form
+  wait_for_user_input: false
