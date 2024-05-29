@@ -8,6 +8,7 @@ intents:
 - confirm_option_chosen_safety
 - confirm_option_chosen_privacy
 - confirm_option_chosen_societal_wellbeing
+- confirm_option_chosen_autonomy
 - confirm_option_reason_chosen
 - confirm_ai_impact
 
@@ -40,6 +41,14 @@ slots:
     - type: from_entity
       entity: session_num
       
+  chosen_option_yesno:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: chosen_option_yesno
+      
   chosen_option:
     type: text
     initial_value: ''
@@ -66,12 +75,100 @@ slots:
       conditions:
         - active_loop: reflection_form  
         
-
+  # for stakeholders open question
+  Stakeholders_slot:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: Stakeholders_form  
+        
+  # for vital value open question
+  VitalValue_slot:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: VitalValue_form  
+  #for ethical ramifications open question
+  EthicalRam_slot:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: EthicalRam_form  
+        
+  # for earlier decision open question
+  EthicalDec_slot:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: EthicalDec_form          
+        
+  #for stakeholder disagreements open question
+  StakeholderDis_slot:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: StakeholderDis_form  
+        
+        
+  #for the exploring alternatives open question
+  ExploreAlt_slot:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+        - active_loop: ExploreAlt_form  
+        
 forms:
   reflection_form:
     required_slots:
         - reflection_slot
+        
+forms:
+  Stakeholders_form:
+    required_slots:
+        - Stakeholders_slot
   
+forms:
+  VitalValue_form:
+    required_slots:
+        - VitalValue_slot  
+
+forms:
+  EthicalRam_form:
+    required_slots:
+        - EthicalRam_slot
+        
+forms:
+  EarlierDec_form:
+    required_slots:
+        - EarlierDec_slot        
+        
+forms:
+  StakeholderDis_form:
+    required_slots:
+        - StakehodlerDis_slot 
+        
+forms:
+  ExploreAlt_form:
+    required_slots:
+        - ExploreAlt_slot               
 
 
 responses:
@@ -80,21 +177,49 @@ responses:
   - buttons:
     - payload: /confirm_intro
       title: "Yes"
-    text: "Hi, my name is DelibBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
+    text: "Hi, my name is DeliBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
   utter_present_scenario:
   - buttons:
     - payload: /confirm_scenario_read
       title: "I'm ready"
-    text: "Here is a scenario. Please let me know when you have looked at it and we can talk about the scenario."
+    text: "Here is a scenario:" 
+    text: "Housing Cooperation Woonstad Rotterdam implemented a camera system throughout their properties. However, now they are planning to implement facial recognition in it. Some of the residents have a problem with this as they do not want to be constantly monitored."
+    text: "Referring to the increased number of robberies in the neighbourhood, Woonstad Rotterdam argues that this system is necessary as it will increase safety."
+    text: "Additionally, Woonstad Rotterdam wants to cooperate with police through the use of these cameras in helping to solve crimes."
+    text: "Some residents, however, argue that these systems will infringe their privacy and lessen their feelings of freedom. They also do not know what will happen with their data once it has been collected."
+    text: "Woonstad Rotterdam argues, however, that the images will only be analysed when there has been a crime in the neighbourhood and they are solely there to increase safety."
+    text: "Should the facial recognition system be used?"
+    text: "Here are some questions to consider: Who are the stakeholders involved here? What are the different positions involved? What are the ethical ramifications here?"
+    text: "Some values that people find important are: e.g., privacy, safety, freedom, wellbeing. Some moral dilemmas that are important are: Privacy vs safety; Perception of safety vs privacy of the citizens. Some risks are: Function creep (e.g. using facial recognition system against residents outside of safety concerns); data privacy (e.g. leaking of data; data being shared with third party actors)."
+    text: "Please let me know when you have looked at it and we can talk about the scenario."
+    # text: "Have you had time to look over the problem scenario?"
+    
+  utter_ask_reflection_slot:
+  - text: "Who are the stakeholders involved here? (e.g. police, non-government organisations, government, academia, industry, public)"
+  utter_ask_reflection_slot:
+  - text: "What do you believe is the most important value involved here? (privacy, autonomy, safety, wellbeing, etc.)"
+  utter_ask_reflection_slot:
+  - text: "What are the ethical ramifications in this scenario?"
+  utter_ask_reflection_slot:
+
+  utter_ask_option_yesno: 
+   text: "Should the facial recognition system be implemented?"
+  - buttons:
+     title:"Yes"
+     payload: /choose_option{"option":"Yes"}
+     title: "No"
+     payload: /choose_option{"option": "No"}
+
+
   utter_ask_options:
    - buttons:
      - payload: /confirm_option_chosen_safety{"chosen_option":"safety"}
-       title: "The employee should use the facial recognition software to search the man in the database to see if any incidents are connected to the man."
+       title: "TThe facial recognition system preserves a feeling of peace within the neighbourhood (security)"
      - payload: /confirm_option_chosen_privacy{"chosen_option":"privacy"}
-       title: "The employee should not use the database but should send someone to approach the man."
+       title: "The facial recognition system infringes on the personal information and facial images of people in the neighbourhood (privacy)"
      - payload: /confirm_option_chosen_societal_wellbeing{"chosen_option":"societal wellbeing"}
        title: "The employee should deploy workers in the station to ask the fellow travellers to stay clear of the man."
-     text: "What should the employee do in this scenario?"
+     text: "Should the facial recognition system be implemented?"
   utter_ask_option_reasons_safety:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 1"}
@@ -107,20 +232,20 @@ responses:
   utter_ask_option_reasons_privacy:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 1"}
-       title: "Privacy reason 1."
+       title: "I don’t trust the organisations involved to use the system for its purpose (Residents)"
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 2"}
-       title: "Privacy reason 2."
+       title: "When is someone added to this list of people and how is this list administered? (Police)."
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 3"}
-       title: "Privacy reason 3."
+       title: "I would support this system if it was used to catch high profile crimes like terrorism, but for times like jaywalking, it does not seem worth the risk (Housing Cooperation)."
      text: "Why did you choose this option?"
   utter_ask_option_reasons_societal_wellbeing:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 1"}
-       title: "Societal wellbeing reason 1."
+       title: "I have no control over if I want to be watched by this system or not (Residents)."
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 2"}
-       title: "Societal wellbeing reason 2."
+       title: "This system presumes that residents are guilty by constantly watching them (Police)."
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 3"}
-       title: "Societal wellbeing reason 3."
+       title: "How are individuals supposed to know when such a system is used on them or when information has been given to other parties (Housing Cooperation)."
      text: "Why did you choose this option?"
   utter_ask_ai_impact:
    - buttons:
@@ -130,13 +255,22 @@ responses:
        title: "It did not."
      text: "How did the use of AI impact your decision?"
 
-  utter_ask_reflection_slot:
-  - text: "Can you expand on your choice and why AI did or did not impact your decision? Which values impacted your choices?"
+
+  # utter_ask_reflection_slot:
+  # - text: "Can you expand on why AI did or did not impact your decision? Which values impacted your choices?"
+  utter_ask_EarlierDec_slot:
+  - text: "Can you further explore your earlier decision?"
+  utter_ask_StakeholderDis_slot:
+  - text: "Can you outline a position of another stakeholder in the scenario that may disagree with your position?"
+  # utter_ask_reflection_slot:
+  # - text: "What may they do in this scenario?"
+   utter_ask_ExploreAlt_slot:
+   - text: "Would you change your choice based on exploring other alternatives throughout this conversation?"
   utter_thank_reflection:
   - text: "Thank you for sharing your reflection and interacting with me."
   
   
-  
+  #what we have below should be taken out of the interaction's currently.
   utter_present_scenario_post:
   - buttons:
     - payload: /confirm_scenario_read
@@ -191,6 +325,11 @@ actions:
 - action_save_session
 
 - validate_reflection_form
-
+- validate_Stakeholders_form
+- validate_VitalValue_form
+- validate_EthicalRam_form
+- validate_EarlierDec_form
+- validate_StakeholderDis_form
+- validate_ExploreAlt_form
 - action_end_dialog
 - action_default_fallback_end_dialog

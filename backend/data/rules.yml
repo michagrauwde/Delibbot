@@ -74,7 +74,7 @@ rules:
   - action: utter_thank_reflection
   - action: utter_final_close_session
   
-  
+  #post-deliberation session
 - rule: start session postdeliberation accountability
   steps:
   - intent: start_session_postdeliberation
