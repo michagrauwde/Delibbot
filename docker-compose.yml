@@ -30,7 +30,7 @@ services:
       restart: always
       environment:
         MYSQL_DATABASE: "db"
-        MYSQL_ROOT_PASSWORD: 'password'
+        MYSQL_ROOT_PASSWORD: 'mysql_delibot_rot_green'
       ports:
         - "3306:3306"
       volumes:
@@ -41,7 +41,7 @@ services:
       restart: always
       environment:
           POSTGRES_USER: root
-          POSTGRES_PASSWORD: root
+          POSTGRES_PASSWORD: 'postgres_delibot_blau_rosa'
       volumes:
        - ./data:/var/lib/postgresql/data
       ports:
