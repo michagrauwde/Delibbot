@@ -11,6 +11,8 @@ intents:
 - confirm_option_chosen_autonomy
 - confirm_option_reason_chosen
 - confirm_ai_impact
+- /choose_option{"option":"Yes"}
+- /choose_option{"option":"No"}
 
 ### Post-deliberation
 - start_session_postdeliberation
@@ -41,13 +43,13 @@ slots:
     - type: from_entity
       entity: session_num
       
-  chosen_option_yesno:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: chosen_option_yesno
+  # chosen_option_yesno:
+  #   type: text
+  #   initial_value: ''
+  #   influence_conversation: false
+  #   mappings:
+  #   - type: from_entity
+  #     entity: chosen_option_yesno
       
   chosen_option:
     type: text
@@ -194,50 +196,54 @@ responses:
     text: "Please let me know when you have looked at it and we can talk about the scenario."
     # text: "Have you had time to look over the problem scenario?"
     
-  utter_ask_reflection_slot:
+  utter_ask_Stakeholders_slot:
   - text: "Who are the stakeholders involved here? (e.g. police, non-government organisations, government, academia, industry, public)"
-  utter_ask_reflection_slot:
+  utter_ask_VitalValue_slot:
   - text: "What do you believe is the most important value involved here? (privacy, autonomy, safety, wellbeing, etc.)"
-  utter_ask_reflection_slot:
+  utter_ask_EthicalRam_slot:
   - text: "What are the ethical ramifications in this scenario?"
-  utter_ask_reflection_slot:
 
-  utter_ask_option_yesno: 
-   text: "Should the facial recognition system be implemented?"
-  - buttons:
-     title:"Yes"
-     payload: /choose_option{"option":"Yes"}
-     title: "No"
-     payload: /choose_option{"option": "No"}
+  # utter_ask_option_yesno: 
+  #  text: "Should the facial recognition system be implemented?"
+  # - buttons:
+  #    title:"Yes"
+  #    payload: /choose_option{"option":"Yes"}
+  #    title: "No"
+  #    payload: /choose_option{"option": "No"}
 
 
   utter_ask_options:
    - buttons:
      - payload: /confirm_option_chosen_safety{"chosen_option":"safety"}
-       title: "TThe facial recognition system preserves a feeling of peace within the neighbourhood (security)"
+       title: "Yes, the facial recognition system preserves a feeling of peace within the neighbourhood"
      - payload: /confirm_option_chosen_privacy{"chosen_option":"privacy"}
-       title: "The facial recognition system infringes on the personal information and facial images of people in the neighbourhood (privacy)"
+       title: "No, the facial recognition system infringes on the personal information and facial images of people in the neighbourhood"
      - payload: /confirm_option_chosen_societal_wellbeing{"chosen_option":"societal wellbeing"}
-       title: "The employee should deploy workers in the station to ask the fellow travellers to stay clear of the man."
+       title: "Yes, the system can create feelings of trust between residents and their neighbours."
+     - payload: /confirm_option_chosen_autonomy{"chosen_option": "autonomy"}
+       title: "No, the facial recognition system makes people feel watched as they live in the neighbourhood."  
      text: "Should the facial recognition system be implemented?"
   utter_ask_option_reasons_safety:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 1"}
-       title: "I find it important that the man is apprehended as quickly as possible."
+       title: "The system is no different than a police officer walking around with a picture of a criminal. If you have done nothing wrong, you have nothing to worry about."
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 2"}
-       title: "If we can figure out who the man is without approaching him, we can keep our employees safe from a distance."
+       title: "Woonstad Rotterdam states that the images are only used to search for individuals in a particular database, residents have nothing to worry about!"
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 3"}
-       title: "If we use the software, we can figure out who the man is and then make decisions then keeping everyone safe."
-     text: "Why did you choose this option?"
+       title: "As a resident, I feel safer knowing that if something goes wrong, they can figure out the culprits. "
+     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 4"}
+       title: "The police does their job well to secure the neighbourhood and so this would allow them to continue to do a good job."
+     text: "Why did you make this choice?"
   utter_ask_option_reasons_privacy:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 1"}
-       title: "I don’t trust the organisations involved to use the system for its purpose (Residents)"
+       title: "As a resident, I don’t trust the organisations involved to use the system for its purpose."
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 2"}
-       title: "When is someone added to this list of people and how is this list administered? (Police)."
+       title: "When is someone added to this list of people and how is this list administered?"
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 3"}
-       title: "I would support this system if it was used to catch high profile crimes like terrorism, but for times like jaywalking, it does not seem worth the risk (Housing Cooperation)."
-     text: "Why did you choose this option?"
+       title: "I would support this system if it was used to catch high profile crimes like terrorism, but for times like jaywalking, it does not seem worth the risk."
+     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 4"}
+     text: "Why did you make this choice?"
   utter_ask_option_reasons_societal_wellbeing:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 1"}
@@ -246,14 +252,26 @@ responses:
        title: "This system presumes that residents are guilty by constantly watching them (Police)."
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 3"}
        title: "How are individuals supposed to know when such a system is used on them or when information has been given to other parties (Housing Cooperation)."
-     text: "Why did you choose this option?"
-  utter_ask_ai_impact:
+     text: "Why did you make this choice?"
+  utter_ask_option_reasons_autonomy:
    - buttons:
-     - payload: /confirm_ai_impact
-       title: "It did."
-     - payload: /confirm_ai_impact
-       title: "It did not."
-     text: "How did the use of AI impact your decision?"
+     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"autonomy 1"}
+       title: "I have no control over if I want to be watched by this system or not."
+     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"autonomy 2"}
+       title: "This system presumes that residents are guilty by constantly watching them."
+     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"autonomy 3"}
+       title: "How are individuals supposed to know when such a system is used on them or when information has been given to other parties."
+     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"autonomy 4"}
+       title: "The housing cooperation is monitoring the entire neighbourhood to catch a few bad apples. "
+     text: "Why did you make this choice?"
+  
+  # utter_ask_ai_impact:
+  #  - buttons:
+  #    - payload: /confirm_ai_impact
+  #      title: "Yes"
+  #    - payload: /confirm_ai_impact
+  #      title: "No"
+  #    text: "Do you feel like AI systems improve public safety?"
 
 
   # utter_ask_reflection_slot:
@@ -262,15 +280,15 @@ responses:
   - text: "Can you further explore your earlier decision?"
   utter_ask_StakeholderDis_slot:
   - text: "Can you outline a position of another stakeholder in the scenario that may disagree with your position?"
-  # utter_ask_reflection_slot:
-  # - text: "What may they do in this scenario?"
+   utter_ask_reflection_slot:
+  - text: "What may they do in this scenario?"
    utter_ask_ExploreAlt_slot:
-   - text: "Would you change your choice based on exploring other alternatives throughout this conversation?"
+  - text: "Would you change your choice based on exploring other alternatives throughout this conversation?"
   utter_thank_reflection:
   - text: "Thank you for sharing your reflection and interacting with me."
   
   
-  #what we have below should be taken out of the interaction's currently.
+  #what we have below should be taken out of the interaction's current status.
   utter_present_scenario_post:
   - buttons:
     - payload: /confirm_scenario_read
@@ -325,11 +343,14 @@ actions:
 - action_save_session
 
 - validate_reflection_form
-- validate_Stakeholders_form
-- validate_VitalValue_form
-- validate_EthicalRam_form
-- validate_EarlierDec_form
-- validate_StakeholderDis_form
-- validate_ExploreAlt_form
+- validate_stakeholders_form
+- validate_vitalvalue_form
+- validate_ethicalram_form
+# - action_handle_yes
+# - action_handle_no
+
+- validate_earlierdec_form
+- validate_stakeholderdis_form
+- validate_explorealt_form
 - action_end_dialog
 - action_default_fallback_end_dialog
