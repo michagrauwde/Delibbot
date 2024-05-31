@@ -259,13 +259,13 @@ responses:
       title: "The housing cooperation is monitoring the entire neighbourhood to catch a few bad apples. "
     text: "Why did you make this choice?"
   
-    utter_ask_ai_impact:
-    - buttons:
-      - payload: /confirm_ai_impact
-        title: "Yes"
-      - payload: /confirm_ai_impact
-        title: "No"
-      text: "Do you feel like AI systems improve public safety?"
+  utter_ask_ai_impact:
+  - buttons:
+    - payload: /confirm_ai_impact
+      title: "Yes"
+    - payload: /confirm_ai_impact
+      title: "No"
+    text: "Do you feel like AI systems improve public safety?"
 
 
   # utter_ask_reflection_slot:
