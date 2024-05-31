@@ -172,30 +172,30 @@ responses:
  utter_intro_delibot:
      buttons:
         payload: /confirm_intro
-     - title: "Yes"
+      - title: "Yes"
         - text: "Hi, my name is DeliBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
  utter_present_scenario:
      buttons:
-       payload: /confirm_scenario_read
-     - title: "I'm ready"
-     - text: "Here is a scenario:" 
-     - text: "Housing Cooperation Woonstad Rotterdam implemented a camera system throughout their properties. However, now they are planning to implement facial recognition in it. Some of the residents have a problem with this as they do not want to be constantly monitored."
-     - text: "Referring to the increased number of robberies in the neighbourhood, Woonstad Rotterdam argues that this system is necessary as it will increase safety."
-     - text: "Additionally, Woonstad Rotterdam wants to cooperate with police through the use of these cameras in helping to solve crimes."
-     - text: "Some residents, however, argue that these systems will infringe their privacy and lessen their feelings of freedom. They also do not know what will happen with their data once it has been collected."
-     - text: "Woonstad Rotterdam argues, however, that the images will only be analysed when there has been a crime in the neighbourhood and they are solely there to increase safety."
-     - text: "Should the facial recognition system be used?"
-     - text: "Here are some questions to consider: Who are the stakeholders involved here? What are the different positions involved? What are the ethical ramifications here?"
-     - text: "Some values that people find important are: e.g., privacy, safety, freedom, wellbeing. Some moral dilemmas that are important are: Privacy vs safety; Perception of safety vs privacy of the citizens. Some risks are: Function creep (e.g. using facial recognition system against residents outside of safety concerns); data privacy (e.g. leaking of data; data being shared with third party actors)."
-     - text: "Please let me know when you have looked at it and we can talk about the scenario."
+        payload: /confirm_scenario_read
+      - title: "I'm ready"
+       - text: "Here is a scenario:" 
+       - text: "Housing Cooperation Woonstad Rotterdam implemented a camera system throughout their properties. However, now they are planning to implement facial recognition in it. Some of the residents have a problem with this as they do not want to be constantly monitored."
+       - text: "Referring to the increased number of robberies in the neighbourhood, Woonstad Rotterdam argues that this system is necessary as it will increase safety."
+       - text: "Additionally, Woonstad Rotterdam wants to cooperate with police through the use of these cameras in helping to solve crimes."
+       - text: "Some residents, however, argue that these systems will infringe their privacy and lessen their feelings of freedom. They also do not know what will happen with their data once it has been collected."
+       - text: "Woonstad Rotterdam argues, however, that the images will only be analysed when there has been a crime in the neighbourhood and they are solely there to increase safety."
+       - text: "Should the facial recognition system be used?"
+       - text: "Here are some questions to consider: Who are the stakeholders involved here? What are the different positions involved? What are the ethical ramifications here?"
+       - text: "Some values that people find important are: e.g., privacy, safety, freedom, wellbeing. Some moral dilemmas that are important are: Privacy vs safety; Perception of safety vs privacy of the citizens. Some risks are: Function creep (e.g. using facial recognition system against residents outside of safety concerns); data privacy (e.g. leaking of data; data being shared with third party actors)."
+       - text: "Please let me know when you have looked at it and we can talk about the scenario."
     # text: "Have you had time to look over the problem scenario?"
     
  utter_ask_Stakeholders_slot:
-     - text: "Who are the stakeholders involved here? (e.g. police, non-government organisations, government, academia, industry, public)"
+       - text: "Who are the stakeholders involved here? (e.g. police, non-government organisations, government, academia, industry, public)"
  utter_ask_VitalValue_slot:
-     - text: "What do you believe is the most important value involved here? (privacy, autonomy, safety, wellbeing, etc.)"
+       - text: "What do you believe is the most important value involved here? (privacy, autonomy, safety, wellbeing, etc.)"
  utter_ask_EthicalRam_slot:
-     - text: "What are the ethical ramifications in this scenario?"
+       - text: "What are the ethical ramifications in this scenario?"
 
   # utter_ask_option_yesno: 
   #  text: "Should the facial recognition system be implemented?"
