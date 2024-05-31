@@ -171,13 +171,13 @@ responses:
 
  utter_intro_delibot:
     - buttons:
-        payload: /confirm_intro
-        - title: "Yes"
+      - payload: /confirm_intro
+       - title: "Yes"
         - text: "Hi, my name is DeliBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
  utter_present_scenario:
     - buttons:
-        payload: /confirm_scenario_read
-        - title: "I'm ready"
+      - payload: /confirm_scenario_read
+       - title: "I'm ready"
         - text: "Here is a scenario:" 
         - text: "Housing Cooperation Woonstad Rotterdam implemented a camera system throughout their properties. However, now they are planning to implement facial recognition in it. Some of the residents have a problem with this as they do not want to be constantly monitored."
         - text: "Referring to the increased number of robberies in the neighbourhood, Woonstad Rotterdam argues that this system is necessary as it will increase safety."
