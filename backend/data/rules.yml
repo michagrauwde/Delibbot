@@ -214,36 +214,36 @@ rules:
   - action: utter_thank_reflection
   - action: utter_final_close_session
   
-  #post-deliberation session
-- rule: start session postdeliberation accountability
-  steps:
-  - intent: start_session_postdeliberation
-  - action: utter_intro_delibot
-  - intent: confirm_intro
-  - action: utter_present_scenario_post
-  - intent: confirm_scenario_read
-  - action: utter_ask_options_post
-  - intent: confirm_option_chosen_post_accountability
-  - action: utter_ask_option_reasons_post_accountability
-  - intent: confirm_option_reason_chosen_post
-  - action: utter_ask_alternatives_accountability
+#   #post-deliberation session
+# - rule: start session postdeliberation accountability
+#   steps:
+#   - intent: start_session_postdeliberation
+#   - action: utter_intro_delibot
+#   - intent: confirm_intro
+#   - action: utter_present_scenario_post
+#   - intent: confirm_scenario_read
+#   - action: utter_ask_options_post
+#   - intent: confirm_option_chosen_post_accountability
+#   - action: utter_ask_option_reasons_post_accountability
+#   - intent: confirm_option_reason_chosen_post
+#   - action: utter_ask_alternatives_accountability
   
   
-- rule: alternative, accountability
-  steps:
-  - intent: confirm_alternative_yes
-  - action: utter_ask_options_post
-  - intent: confirm_option_chosen_post_accountability
-  - action: utter_ask_option_reasons_post_accountability
-  - intent: confirm_option_reason_chosen_post
-  - action: utter_ask_alternatives_accountability
+# - rule: alternative, accountability
+#   steps:
+#   - intent: confirm_alternative_yes
+#   - action: utter_ask_options_post
+#   - intent: confirm_option_chosen_post_accountability
+#   - action: utter_ask_option_reasons_post_accountability
+#   - intent: confirm_option_reason_chosen_post
+#   - action: utter_ask_alternatives_accountability
   
   
-- rule: no alternative
-  steps:
-  - intent: confirm_alternative_no 
-  - action: utter_ask_ai_impact
-  - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  wait_for_user_input: false
+# - rule: no alternative
+#   steps:
+#   - intent: confirm_alternative_no 
+#   - action: utter_ask_ai_impact
+#   - intent: confirm_ai_impact
+#   - action: reflection_form
+#   - active_loop: reflection_form
+#   wait_for_user_input: false
