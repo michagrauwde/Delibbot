@@ -216,7 +216,7 @@ responses:
       title: "Yes, the system can create feelings of trust between residents and their neighbours."
     - payload: /confirm_option_chosen_autonomy{"chosen_option":"autonomy"}
       title: "No, the facial recognition system makes people feel watched as they live in the neighbourhood."  
-     text: "Should the facial recognition system be implemented?"
+    text: "Should the facial recognition system be implemented?"
   utter_ask_option_reasons_safety:
   - buttons:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 1"}
@@ -227,7 +227,7 @@ responses:
       title: "As a resident, I feel safer knowing that if something goes wrong, they can figure out the culprits. "
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 4"}
       title: "The police does their job well to secure the neighbourhood and so this would allow them to continue to do a good job."
-     text: "Why did you make this choice?"
+    text: "Why did you make this choice?"
   utter_ask_option_reasons_privacy:
   - buttons:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 1"}
@@ -237,7 +237,7 @@ responses:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 3"}
       title: "I would support this system if it was used to catch high profile crimes like terrorism, but for times like jaywalking, it does not seem worth the risk."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 4"}
-     text: "Why did you make this choice?"
+    text: "Why did you make this choice?"
   utter_ask_option_reasons_societal_wellbeing:
   - buttons:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 1"}
@@ -246,7 +246,7 @@ responses:
       title: "This system presumes that residents are guilty by constantly watching them (Police)."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 3"}
       title: "How are individuals supposed to know when such a system is used on them or when information has been given to other parties (Housing Cooperation)."
-     text: "Why did you make this choice?"
+    text: "Why did you make this choice?"
   utter_ask_option_reasons_autonomy:
   - buttons:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"autonomy 1"}
@@ -257,7 +257,7 @@ responses:
       title: "How are individuals supposed to know when such a system is used on them or when information has been given to other parties."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"autonomy 4"}
       title: "The housing cooperation is monitoring the entire neighbourhood to catch a few bad apples. "
-     text: "Why did you make this choice?"
+    text: "Why did you make this choice?"
   
   # utter_ask_ai_impact:
   #  - buttons:
