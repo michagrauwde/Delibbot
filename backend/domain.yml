@@ -137,34 +137,34 @@ slots:
       conditions:
         - active_loop: ExploreAlt_form  
         
-forms:
+ forms:
   reflection_form:
-    required_slots:
-        - reflection_slot
+   required_slots:
+    - reflection_slot
         
   Stakeholders_form:
-    required_slots:
-        - Stakeholders_slot
+   required_slots:
+    - Stakeholders_slot
   
   VitalValue_form:
-    required_slots:
-        - VitalValue_slot  
+   required_slots:
+    - VitalValue_slot  
 
   EthicalRam_form:
-    required_slots:
-        - EthicalRam_slot
+   required_slots:
+    - EthicalRam_slot
         
   EarlierDec_form:
-    required_slots:
-        - EarlierDec_slot        
+   required_slots:
+    - EarlierDec_slot        
         
   StakeholderDis_form:
-    required_slots:
-        - StakehodlerDis_slot 
+   required_slots:
+    - StakehodlerDis_slot 
         
   ExploreAlt_form:
-    required_slots:
-        - ExploreAlt_slot               
+   required_slots:
+    - ExploreAlt_slot               
 
 
 responses:
