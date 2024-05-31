@@ -175,7 +175,7 @@ forms:
 
 responses:
 
-  utter_intro_delibot:
+ utter_intro_delibot:
   - buttons:
     - payload: /confirm_intro
       title: "Yes"
@@ -280,9 +280,9 @@ responses:
   - text: "Can you further explore your earlier decision?"
   utter_ask_StakeholderDis_slot:
   - text: "Can you outline a position of another stakeholder in the scenario that may disagree with your position?"
-   utter_ask_reflection_slot:
+  utter_ask_reflection_slot:
   - text: "What may they do in this scenario?"
-   utter_ask_ExploreAlt_slot:
+  utter_ask_ExploreAlt_slot:
   - text: "Would you change your choice based on exploring other alternatives throughout this conversation?"
   utter_thank_reflection:
   - text: "Thank you for sharing your reflection and interacting with me."
