@@ -63,10 +63,10 @@ rules:
   - active_loop: stakeholderdis_form
   - action: explorealt_form
   - active_loop: explorealt_form
-  # - action: utter_ask_ai_impact
-  # - intent: confirm_ai_impact
-  # - action: reflection_form
-  # - active_loop: reflection_form
+   - action: utter_ask_ai_impact
+   - intent: confirm_ai_impact
+   - action: reflection_form
+   - active_loop: reflection_form
   - wait_for_user_input: false
   
   
@@ -93,10 +93,10 @@ rules:
   - active_loop: stakeholderdis_form
   - action: explorealt_form
   - active_loop: explorealt_form
-  # - action: utter_ask_ai_impact
-  # - intent: confirm_ai_impact
-  # - action: reflection_form
-  # - active_loop: reflection_form
+   - action: utter_ask_ai_impact
+   - intent: confirm_ai_impact
+   - action: reflection_form
+   - active_loop: reflection_form
   - wait_for_user_input: false
   
 
@@ -123,10 +123,10 @@ rules:
   - active_loop: stakeholderdis_form
   - action: explorealt_form
   - active_loop: explorealt_form
-  # - action: utter_ask_ai_impact
-  # - intent: confirm_ai_impact
-  # - action: reflection_form
-  # - active_loop: reflection_form
+   - action: utter_ask_ai_impact
+   - intent: confirm_ai_impact
+   - action: reflection_form
+   - active_loop: reflection_form
   - wait_for_user_input: false
   
 - rule: start session predeliberation autonomy
@@ -152,10 +152,10 @@ rules:
   - active_loop: vitalvalue_form
   - action: ethicalram_form
   - active_loop: ethicalram_form
-  # - action: utter_ask_ai_impact
-  # - intent: confirm_ai_impact
-  # - action: reflection_form
-  # - active_loop: reflection_form
+   - action: utter_ask_ai_impact
+   - intent: confirm_ai_impact
+   - action: reflection_form
+   - active_loop: reflection_form
   - wait_for_user_input: false
   
   
