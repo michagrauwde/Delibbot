@@ -220,7 +220,7 @@ responses:
        title: "No, the facial recognition system infringes on the personal information and facial images of people in the neighbourhood"
      - payload: /confirm_option_chosen_societal_wellbeing{"chosen_option":"societal wellbeing"}
        title: "Yes, the system can create feelings of trust between residents and their neighbours."
-     - payload: /confirm_option_chosen_autonomy{"chosen_option": "autonomy"}
+     - payload: /confirm_option_chosen_autonomy{"chosen_option":"autonomy"}
        title: "No, the facial recognition system makes people feel watched as they live in the neighbourhood."  
      text: "Should the facial recognition system be implemented?"
   utter_ask_option_reasons_safety:
