@@ -174,101 +174,101 @@ class ValidateVitalValueForm(FormValidationAction):
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
-        """Validate VitalValue_slot input."""
+        """Validate vitalvalue_slot input."""
         last_utterance = get_latest_bot_utterance(tracker.events)
 
         if last_utterance != 'utter_ask_vitalvalue_slot':
-            return {"VitalValue_slot": None}
+            return {"vitalvalue_slot": None}
 
         # people should type a bit more
         if not len(value) >= 10:
             dispatcher.utter_message(response="utter_provide_more_detail")
-            return {"VitalValue_slot": None}
+            return {"vitalvalue_slot": None}
 
-        return {"VitalValue_slot": value}
+        return {"vitalvalue_slot": value}
 
 class ValidateEthicalRamForm(FormValidationAction):
     def name(self) -> Text:
-        return 'validate_EthicalRam_form'
+        return 'validate_ethicalram_form'
 
     def validate_EthicalRam_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
-        """Validate EthicalRam_slot input."""
+        """Validate ethicalram_slot input."""
         last_utterance = get_latest_bot_utterance(tracker.events)
 
         if last_utterance != 'utter_ask_EthicalRam_slot':
-            return {"EthicalRam_slot": None}
+            return {"ethicalram_slot": None}
 
         # people should type a bit more
         if not len(value) >= 10:
             dispatcher.utter_message(response="utter_provide_more_detail")
-            return {"EthicalRam_slot": None}
+            return {"ethicalram_slot": None}
 
-        return {"EthicalRam_slot": value}
+        return {"ethicalram_slot": value}
     
 class ValidateEarlierDecForm(FormValidationAction):
     def name(self) -> Text:
-        return 'validate_EarlierDec_form'
+        return 'validate_earlierdec_form'
 
     def validate_EarlierDec_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
-        """Validate EarlierDec_slot input."""
+        """Validate earlierdec_slot input."""
         last_utterance = get_latest_bot_utterance(tracker.events)
 
-        if last_utterance != 'utter_ask_EarlierDec_slot':
-            return {"EarlierDec_slot": None}
+        if last_utterance != 'utter_ask_earlierdec_slot':
+            return {"earlierdec_slot": None}
 
         # people should type a bit more
         if not len(value) >= 10:
             dispatcher.utter_message(response="utter_provide_more_detail")
-            return {"EarlierDec_slot": None}
+            return {"earlierdec_slot": None}
 
-        return {"EarlierDec_slot": value}
+        return {"earlierdec_slot": value}
 
 class ValidateStakeholderDisForm(FormValidationAction):
     def name(self) -> Text:
-        return 'validate_StakeholderDis_form'
+        return 'validate_stakeholderdis_form'
 
     def validate_StakeholderDis_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
-        """Validate StakeholderDis_slot input."""
+        """Validate stakeholderdis_slot input."""
         last_utterance = get_latest_bot_utterance(tracker.events)
 
-        if last_utterance != 'utter_ask_StakeholderDis_slot':
-            return {"StakeholderDis_slot": None}
+        if last_utterance != 'utter_ask_stakeholderdis_slot':
+            return {"stakeholderdis_slot": None}
 
         # people should type a bit more
         if not len(value) >= 10:
             dispatcher.utter_message(response="utter_provide_more_detail")
-            return {"StakeholderDis_slot": None}
+            return {"stakeholderdis_slot": None}
 
-        return {"StakeholderDis_slot": value}
+        return {"stakeholderdis_slot": value}
     
 class ValidateExploreAltForm(FormValidationAction):
     def name(self) -> Text:
-        return 'validate_ExploreAlt_form'
+        return 'validate_explorealt_form'
 
     def validate_ExploreAlt_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
-        """Validate ExploreAlt_slot input."""
+        """Validate explorealt_slot input."""
         last_utterance = get_latest_bot_utterance(tracker.events)
 
-        if last_utterance != 'utter_ask_ExploreAlt_slot':
-            return {"ExploreAlt_slot": None}
+        if last_utterance != 'utter_ask_explorealt_slot':
+            return {"explorealt_slot": None}
 
         # people should type a bit more
         if not len(value) >= 10:
             dispatcher.utter_message(response="utter_provide_more_detail")
-            return {"ExploreAlt_slot": None}
+            return {"explorealt_slot": None}
 
-        return {"ExploreAlt_slot": value}
+        return {"explorealt_slot": value}
     
     
