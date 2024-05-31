@@ -11,8 +11,8 @@ intents:
 - confirm_option_chosen_autonomy
 - confirm_option_reason_chosen
 - confirm_ai_impact
-- /choose_option{"option":"Yes"}
-- /choose_option{"option":"No"}
+# - /choose_option{"option":"Yes"}
+# - /choose_option{"option":"No"}
 
 ### Post-deliberation
 - start_session_postdeliberation
@@ -169,10 +169,10 @@ forms:
 
 responses:
   utter_intro_delibot:
-    buttons:
-     - payload: /confirm_intro
-       title: "Yes"
-      text: "Hi, my name is DeliBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
+   - buttons:
+    - payload: /confirm_intro
+     title: "Yes"
+    text: "Hi, my name is DeliBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
 
   utter_present_scenario:
     buttons:
