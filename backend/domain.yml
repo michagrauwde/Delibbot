@@ -137,7 +137,7 @@ slots:
       conditions:
         - active_loop: ExploreAlt_form  
         
- forms:
+forms:
   reflection_form:
    required_slots:
     - reflection_slot
