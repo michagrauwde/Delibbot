@@ -142,32 +142,26 @@ forms:
     required_slots:
         - reflection_slot
         
-forms:
   Stakeholders_form:
     required_slots:
         - Stakeholders_slot
   
-forms:
   VitalValue_form:
     required_slots:
         - VitalValue_slot  
 
-forms:
   EthicalRam_form:
     required_slots:
         - EthicalRam_slot
         
-forms:
   EarlierDec_form:
     required_slots:
         - EarlierDec_slot        
         
-forms:
   StakeholderDis_form:
     required_slots:
         - StakehodlerDis_slot 
         
-forms:
   ExploreAlt_form:
     required_slots:
         - ExploreAlt_slot               
@@ -176,31 +170,31 @@ forms:
 responses:
 
  utter_intro_delibot:
-    buttons:
-     payload: /confirm_intro
-     title: "Yes"
-    text: "Hi, my name is DeliBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
+   - buttons:
+   - payload: /confirm_intro
+   - title: "Yes"
+     text: "Hi, my name is DeliBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
  utter_present_scenario:
    - buttons:
-    - payload: /confirm_scenario_read
-      title: "I'm ready"
-    text: "Here is a scenario:" 
-    text: "Housing Cooperation Woonstad Rotterdam implemented a camera system throughout their properties. However, now they are planning to implement facial recognition in it. Some of the residents have a problem with this as they do not want to be constantly monitored."
-    text: "Referring to the increased number of robberies in the neighbourhood, Woonstad Rotterdam argues that this system is necessary as it will increase safety."
-    text: "Additionally, Woonstad Rotterdam wants to cooperate with police through the use of these cameras in helping to solve crimes."
-    text: "Some residents, however, argue that these systems will infringe their privacy and lessen their feelings of freedom. They also do not know what will happen with their data once it has been collected."
-    text: "Woonstad Rotterdam argues, however, that the images will only be analysed when there has been a crime in the neighbourhood and they are solely there to increase safety."
-    text: "Should the facial recognition system be used?"
-    text: "Here are some questions to consider: Who are the stakeholders involved here? What are the different positions involved? What are the ethical ramifications here?"
-    text: "Some values that people find important are: e.g., privacy, safety, freedom, wellbeing. Some moral dilemmas that are important are: Privacy vs safety; Perception of safety vs privacy of the citizens. Some risks are: Function creep (e.g. using facial recognition system against residents outside of safety concerns); data privacy (e.g. leaking of data; data being shared with third party actors)."
-    text: "Please let me know when you have looked at it and we can talk about the scenario."
+   - payload: /confirm_scenario_read
+   - title: "I'm ready"
+   - text: "Here is a scenario:" 
+   - text: "Housing Cooperation Woonstad Rotterdam implemented a camera system throughout their properties. However, now they are planning to implement facial recognition in it. Some of the residents have a problem with this as they do not want to be constantly monitored."
+   - text: "Referring to the increased number of robberies in the neighbourhood, Woonstad Rotterdam argues that this system is necessary as it will increase safety."
+   - text: "Additionally, Woonstad Rotterdam wants to cooperate with police through the use of these cameras in helping to solve crimes."
+   - text: "Some residents, however, argue that these systems will infringe their privacy and lessen their feelings of freedom. They also do not know what will happen with their data once it has been collected."
+   - text: "Woonstad Rotterdam argues, however, that the images will only be analysed when there has been a crime in the neighbourhood and they are solely there to increase safety."
+   - text: "Should the facial recognition system be used?"
+   - text: "Here are some questions to consider: Who are the stakeholders involved here? What are the different positions involved? What are the ethical ramifications here?"
+   - text: "Some values that people find important are: e.g., privacy, safety, freedom, wellbeing. Some moral dilemmas that are important are: Privacy vs safety; Perception of safety vs privacy of the citizens. Some risks are: Function creep (e.g. using facial recognition system against residents outside of safety concerns); data privacy (e.g. leaking of data; data being shared with third party actors)."
+   - text: "Please let me know when you have looked at it and we can talk about the scenario."
     # text: "Have you had time to look over the problem scenario?"
     
-  utter_ask_Stakeholders_slot:
+ utter_ask_Stakeholders_slot:
   - text: "Who are the stakeholders involved here? (e.g. police, non-government organisations, government, academia, industry, public)"
-  utter_ask_VitalValue_slot:
+ utter_ask_VitalValue_slot:
   - text: "What do you believe is the most important value involved here? (privacy, autonomy, safety, wellbeing, etc.)"
-  utter_ask_EthicalRam_slot:
+ utter_ask_EthicalRam_slot:
   - text: "What are the ethical ramifications in this scenario?"
 
   # utter_ask_option_yesno: 
@@ -212,7 +206,7 @@ responses:
   #    payload: /choose_option{"option": "No"}
 
 
-  utter_ask_options:
+ utter_ask_options:
    - buttons:
      - payload: /confirm_option_chosen_safety{"chosen_option":"safety"}
        title: "Yes, the facial recognition system preserves a feeling of peace within the neighbourhood"
@@ -223,7 +217,7 @@ responses:
      - payload: /confirm_option_chosen_autonomy{"chosen_option":"autonomy"}
        title: "No, the facial recognition system makes people feel watched as they live in the neighbourhood."  
      text: "Should the facial recognition system be implemented?"
-  utter_ask_option_reasons_safety:
+ utter_ask_option_reasons_safety:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 1"}
        title: "The system is no different than a police officer walking around with a picture of a criminal. If you have done nothing wrong, you have nothing to worry about."
@@ -234,7 +228,7 @@ responses:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 4"}
        title: "The police does their job well to secure the neighbourhood and so this would allow them to continue to do a good job."
      text: "Why did you make this choice?"
-  utter_ask_option_reasons_privacy:
+ utter_ask_option_reasons_privacy:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 1"}
        title: "As a resident, I don’t trust the organisations involved to use the system for its purpose."
@@ -244,7 +238,7 @@ responses:
        title: "I would support this system if it was used to catch high profile crimes like terrorism, but for times like jaywalking, it does not seem worth the risk."
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 4"}
      text: "Why did you make this choice?"
-  utter_ask_option_reasons_societal_wellbeing:
+ utter_ask_option_reasons_societal_wellbeing:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 1"}
        title: "I have no control over if I want to be watched by this system or not (Residents)."
@@ -253,7 +247,7 @@ responses:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 3"}
        title: "How are individuals supposed to know when such a system is used on them or when information has been given to other parties (Housing Cooperation)."
      text: "Why did you make this choice?"
-  utter_ask_option_reasons_autonomy:
+ utter_ask_option_reasons_autonomy:
    - buttons:
      - payload: /confirm_option_reason_chosen{"chosen_option_reason":"autonomy 1"}
        title: "I have no control over if I want to be watched by this system or not."
@@ -276,25 +270,25 @@ responses:
 
   # utter_ask_reflection_slot:
   # - text: "Can you expand on why AI did or did not impact your decision? Which values impacted your choices?"
-  utter_ask_EarlierDec_slot:
+ utter_ask_EarlierDec_slot:
   - text: "Can you further explore your earlier decision?"
-  utter_ask_StakeholderDis_slot:
+ utter_ask_StakeholderDis_slot:
   - text: "Can you outline a position of another stakeholder in the scenario that may disagree with your position?"
-  utter_ask_reflection_slot:
+ utter_ask_reflection_slot:
   - text: "What may they do in this scenario?"
-  utter_ask_ExploreAlt_slot:
+ utter_ask_ExploreAlt_slot:
   - text: "Would you change your choice based on exploring other alternatives throughout this conversation?"
-  utter_thank_reflection:
+ utter_thank_reflection:
   - text: "Thank you for sharing your reflection and interacting with me."
   
   
   #what we have below should be taken out of the interaction's current status.
-  utter_present_scenario_post:
+ utter_present_scenario_post:
   - buttons:
     - payload: /confirm_scenario_read
       title: "I'm ready"
     text: "Here is a scenario. Please let me know when you have looked at it and we can talk about the scenario."
-  utter_ask_options_post:
+ utter_ask_options_post:
    - buttons:
      - payload: /confirm_option_chosen_post_safety{"chosen_option":"safety"}
        title: "The operator should use gait/object recognition to track the figure on the camera."
@@ -303,7 +297,7 @@ responses:
      - payload: /confirm_option_chosen_post_privacy{"chosen_option":"privacy"}
        title: "If the operator uses the system, a lot of other people may also be spotted on the camera, thus invading those people’s privacy."
      text: "What should the police in the HeadQuarters do?"
-  utter_ask_option_reasons_post_accountability:
+ utter_ask_option_reasons_post_accountability:
    - buttons:
      - payload: /confirm_option_reason_chosen_post{"chosen_option_reason":"accountability 1"}
        title: "If the system exists, someone should be able to use the system for its job."
@@ -312,7 +306,7 @@ responses:
      - payload: /confirm_option_reason_chosen_post{"chosen_option_reason":"accountability 3"}
        title: "The operator is accountable for using the system for its purpose and should be held accountable if they use it wrong."
      text: "Why did you choose this option?"
-  utter_ask_alternatives_accountability:
+ utter_ask_alternatives_accountability:
   - buttons:
     - payload: /confirm_alternative_yes
       title: "Yes"
@@ -322,19 +316,19 @@ responses:
   
   
 
-  utter_default_close_session:
+ utter_default_close_session:
   - text: "PLEASE CLOSE THIS WINDOW AND CONTACT THE RESEARCHER."
   
-  utter_default:
+ utter_default:
   - text: "There is a problem with this session."
   
-  utter_provide_more_detail:
+ utter_provide_more_detail:
   - text: "Hmm, can you describe this in a bit more detail?"
   - text: "I see, could you elaborate a little more on this?"
   - text: "I'd like to understand better, can you give me more details on this?"
   
   
-  utter_final_close_session:
+ utter_final_close_session:
   - text: "THIS IS THE END OF THIS SESSION. PLEASE CLOSE THIS WINDOW."
  
 
