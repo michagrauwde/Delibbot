@@ -176,8 +176,8 @@ forms:
 responses:
 
  utter_intro_delibot:
-   - buttons:
-    - payload: /confirm_intro
+    buttons:
+     payload: /confirm_intro
       title: "Yes"
     text: "Hi, my name is DeliBot. I am here to help you reflect on your thoughts on public safety scenarios. Would you like that?"
  utter_present_scenario:
