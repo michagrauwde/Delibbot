@@ -65,9 +65,9 @@ rules:
   - active_loop: explorealt_form
   # - action: utter_ask_ai_impact
   # - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  - wait_for_user_input: false
+  # - action: reflection_form
+  # - active_loop: reflection_form
+  # - wait_for_user_input: false
   
   
 - rule: start session predeliberation privacy
@@ -95,9 +95,9 @@ rules:
   - active_loop: explorealt_form
   # - action: utter_ask_ai_impact
   # - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  - wait_for_user_input: false
+  # - action: reflection_form
+  # - active_loop: reflection_form
+  # - wait_for_user_input: false
   
 
 - rule: start session predeliberation societal wellbeing
@@ -123,11 +123,11 @@ rules:
   - active_loop: stakeholderdis_form
   - action: explorealt_form
   - active_loop: explorealt_form
-  - action: utter_ask_ai_impact
+  # - action: utter_ask_ai_impact
   # - intent: confirm_ai_impact
   # - action: reflection_form
-  - active_loop: reflection_form
-  - wait_for_user_input: false
+  # - active_loop: reflection_form
+  # - wait_for_user_input: false
   
 - rule: start session predeliberation autonomy
   steps:
@@ -154,9 +154,9 @@ rules:
   - active_loop: ethicalram_form
   # - action: utter_ask_ai_impact
   # - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  - wait_for_user_input: false
+  # - action: reflection_form
+  # - active_loop: reflection_form
+  # - wait_for_user_input: false
   
   
 - rule:
