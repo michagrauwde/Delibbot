@@ -106,7 +106,7 @@ class ActionSaveSession(Action):
             userid = tracker.current_state()['sender_id']
             session_num = tracker.get_slot("session_num")
 
-            slots_to_save = ["chosen_option", "chosen_option_reason", "reflection_slot"]
+            slots_to_save = ["chosen_option", "chosen_option_reason", "reflection_slot", "stakeholders_slot","vitalvalue_slot", "ethicalram_slot", "earlierdec_slot", "stakeholderdis_slot", "explorealt_slot"]
             for slot in slots_to_save:
 
                 save_sessiondata_entry(cur, conn, userid, session_num,
@@ -198,7 +198,7 @@ class ValidateethicalramForm(FormValidationAction):
         """Validate ethicalram_slot input."""
         last_utterance = get_latest_bot_utterance(tracker.events)
 
-        if last_utterance != 'utter_ask_EthicalRam_slot':
+        if last_utterance != 'utter_ask_ethicalram_slot':
             return {"ethicalram_slot": None}
 
         # people should type a bit more
