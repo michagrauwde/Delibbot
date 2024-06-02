@@ -59,6 +59,7 @@ rules:
   - intent: confirm_scenario_read
   - action: stakeholders_form
   - active_loop: stakeholders_form
+  # this is the issue
   - wait_for_user_input: false
   - action: vitalvalue_form
   - active_loop: vitalvalue_form
@@ -273,11 +274,11 @@ rules:
 #   - action: utter_ask_alternatives_accountability
   
   
-# - rule: no alternative
-#   steps:
-#   - intent: confirm_alternative_no 
-#   - action: utter_ask_ai_impact
-#   - intent: confirm_ai_impact
-#   - action: reflection_form
-#   - active_loop: reflection_form
-#   wait_for_user_input: false
+- rule: no alternative
+  steps:
+  - intent: confirm_alternative_no 
+  - action: utter_ask_ai_impact
+  - intent: confirm_ai_impact
+  - action: reflection_form
+  - active_loop: reflection_form
+  wait_for_user_input: false
