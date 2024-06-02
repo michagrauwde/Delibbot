@@ -13,9 +13,15 @@ rules:
   steps:
   - intent: start_session_predeliberation
   - action: utter_intro_delibot
+  
+- rule: confirm intro
+  steps:
   - intent: confirm_intro
   - action: utter_present_scenario
   - action: utter_present_scenario_confirm
+  
+- rule: confirm scenario read
+  steps:
   - intent: confirm_scenario_read
   - action: stakeholders_form
   - active_loop: stakeholders_form
@@ -50,11 +56,6 @@ rules:
   - action: utter_ask_options
   - intent: confirm_option_chosen_safety
   - action: utter_ask_option_reasons_safety
-  - intent: confirm_option_reason_chosen
-  - action: utter_thanks_reason_chosen
-  - action: earlierdec_form
-  - active_loop: earlierdec_form
-  wait_for_user_input: false
   
 - rule: ramifications given, privacy
   condition:
@@ -65,11 +66,6 @@ rules:
   - action: utter_ask_options
   - intent: confirm_option_chosen_privacy
   - action: utter_ask_option_reasons_privacy
-  - intent: confirm_option_reason_chosen
-  - action: utter_thanks_reason_chosen
-  - action: earlierdec_form
-  - active_loop: earlierdec_form
-  wait_for_user_input: false
   
 - rule: ramifications given, societal wellbeing
   condition:
@@ -80,11 +76,6 @@ rules:
   - action: utter_ask_options
   - intent: confirm_option_chosen_societal_wellbeing
   - action: utter_ask_option_reasons_societal_wellbeing
-  - intent: confirm_option_reason_chosen
-  - action: utter_thanks_reason_chosen
-  - action: earlierdec_form
-  - active_loop: earlierdec_form
-  wait_for_user_input: false
   
 - rule: ramifications given, autonomy
   condition:
@@ -95,12 +86,15 @@ rules:
   - action: utter_ask_options
   - intent: confirm_option_chosen_autonomy
   - action: utter_ask_option_reasons_autonomy
+  
+- rule: confirm option reason chosen, earlierdec
+  steps:
   - intent: confirm_option_reason_chosen
   - action: utter_thanks_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
   wait_for_user_input: false
-  
+
 - rule: earlierdec given, stakeholderdis
   condition:
     - active_loop: earlierdec_form
