@@ -274,8 +274,6 @@ responses:
   - text: "Can you further explore your earlier decision?"
   utter_ask_stakeholderdis_slot:
   - text: "Can you outline a position of another stakeholder in the scenario that may disagree with your position?"
-  utter_ask_reflection_slot:
-  - text: "What may they do in this scenario?"
   utter_ask_explorealt_slot:
   - text: "Would you change your choice based on exploring other alternatives throughout this conversation?"
   utter_thank_reflection:
