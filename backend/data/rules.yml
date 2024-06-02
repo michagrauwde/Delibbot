@@ -9,7 +9,7 @@ rules:
   - action: utter_default_close_session
   - action: action_end_dialog
 
-- rule: start session predeliberation safety
+- rule: start session predeliberation
   steps:
   - intent: start_session_predeliberation
   - action: utter_intro_delibot
