@@ -9,51 +9,6 @@ rules:
   - action: utter_default_close_session
   - action: action_end_dialog
 
-- rule: reflection given
-  condition:
-    - active_loop: reflection_form
-  steps:
-  - action: reflection_form
-  - active_loop: null
-  - action: action_save_session
-  - action: utter_thank_reflection
-  - action: utter_final_close_session
-  wait_for_user_input: false
-  
-- rule: stakeholders given
-  condition:
-    - active_loop: stakeholders_form
-  steps:
-  - action: stakeholders_form
-  - active_loop: null
-  - action: action_save_session
-  - action: utter_thank_reflection
-  - action: utter_final_close_session
-  wait_for_user_input: false
-  
-- rule: vitalvalue given
-  condition:
-    - active_loop: vitalvalue_form
-  steps:
-  - action: vitalvalue_form
-  - active_loop: null
-  - action: action_save_session
-  - action: utter_thank_reflection
-  - action: utter_final_close_session
-  wait_for_user_input: false
-  
-- rule: ethicalram given
-  condition:
-    - active_loop: ethicalram_form
-  steps:
-  - action: ethicalram_form
-  - active_loop: null
-  - action: action_save_session
-  - action: utter_thank_reflection
-  - action: utter_final_close_session
-  wait_for_user_input: false
-    
-    
 - rule: start session predeliberation safety
   steps:
   - intent: start_session_predeliberation
@@ -63,161 +18,116 @@ rules:
   - intent: confirm_scenario_read
   - action: stakeholders_form
   - active_loop: stakeholders_form
-  # this is the issue
-  # - wait_for_user_input: false
+  wait_for_user_input: false
+  
+- rule: stakeholders given and ask about value
+  condition:
+    - active_loop: stakeholders_form
+  steps:
+  - action: stakeholders_form
+  - active_loop: null
   - action: vitalvalue_form
   - active_loop: vitalvalue_form
-  # - wait_for_user_input: false
+  wait_for_user_input: false
+  
+- rule: values given and ask about ramifications
+  condition:
+    - active_loop: vitalvalue_form
+  steps:
+  - action: vitalvalue_form
+  - active_loop: null
   - action: ethicalram_form
   - active_loop: ethicalram_form
-  # - wait_for_user_input: false
+  wait_for_user_input: false
+  
+- rule: ramifications given, safety
+  condition:
+    - active_loop: ethicalram_form
+  steps:
+  - action: ethicalram_form
+  - active_loop: null
   - action: utter_ask_options
   - intent: confirm_option_chosen_safety
   - action: utter_ask_option_reasons_safety
   - intent: confirm_option_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
-  # - wait_for_user_input: false
-  - action: stakeholderdis_form
-  - active_loop: stakeholderdis_form
-  # - wait_for_user_input: false
-  - action: explorealt_form
-  - active_loop: explorealt_form
-  # - wait_for_user_input: false
-  - action: utter_ask_ai_impact
-  - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  # - wait_for_user_input: false
+  wait_for_user_input: false
   
-  
-- rule: start session predeliberation privacy
+- rule: ramifications given, safety
+  condition:
+    - active_loop: ethicalram_form
   steps:
-  - intent: start_session_predeliberation
-  - action: utter_intro_delibot
-  - intent: confirm_intro
-  - action: utter_present_scenario
-  - intent: confirm_scenario_read
-  - action: stakeholders_form
-  - active_loop: stakeholders_form
-  # - wait_for_user_input: false
-  - action: vitalvalue_form
-  - active_loop: vitalvalue_form
-  # - wait_for_user_input: false
   - action: ethicalram_form
-  - active_loop: ethicalram_form
-  # - wait_for_user_input: false
+  - active_loop: null
+  - action: utter_ask_options
+  - intent: confirm_option_chosen_safety
+  - action: utter_ask_option_reasons_safety
+  - intent: confirm_option_reason_chosen
+  - action: earlierdec_form
+  - active_loop: earlierdec_form
+  wait_for_user_input: false
+  
+- rule: ramifications given, privacy
+  condition:
+    - active_loop: ethicalram_form
+  steps:
+  - action: ethicalram_form
+  - active_loop: null
   - action: utter_ask_options
   - intent: confirm_option_chosen_privacy
   - action: utter_ask_option_reasons_privacy
   - intent: confirm_option_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
-  # - wait_for_user_input: false
-  - action: stakeholderdis_form
-  - active_loop: stakeholderdis_form
-  # - wait_for_user_input: false
-  - action: explorealt_form
-  - active_loop: explorealt_form
-  # - wait_for_user_input: false
-  - action: utter_ask_ai_impact
-  - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  # - wait_for_user_input: false
+  wait_for_user_input: false
   
-
-- rule: start session predeliberation societal wellbeing
+- rule: ramifications given, societal wellbeing
+  condition:
+    - active_loop: ethicalram_form
   steps:
-  - intent: start_session_predeliberation
-  - action: utter_intro_delibot
-  - intent: confirm_intro
-  - action: utter_present_scenario
-  - intent: confirm_scenario_read
-  - action: stakeholders_form
-  - active_loop: stakeholders_form
-  # - wait_for_user_input: false
-  - action: vitalvalue_form
-  - active_loop: vitalvalue_form
-  # - wait_for_user_input: false
   - action: ethicalram_form
-  - active_loop: ethicalram_form
-  # - wait_for_user_input: false
+  - active_loop: null
   - action: utter_ask_options
   - intent: confirm_option_chosen_societal_wellbeing
   - action: utter_ask_option_reasons_societal_wellbeing
   - intent: confirm_option_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
-  # - wait_for_user_input: false
-  - action: stakeholderdis_form
-  - active_loop: stakeholderdis_form
-  # - wait_for_user_input: false
-  - action: explorealt_form
-  - active_loop: explorealt_form
-  # - wait_for_user_input: false
-  - action: utter_ask_ai_impact
-  - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  # - wait_for_user_input: false
+  wait_for_user_input: false
   
-- rule: start session predeliberation autonomy
+- rule: ramifications given, autonomy
+  condition:
+    - active_loop: ethicalram_form
   steps:
-  - intent: start_session_predeliberation
-  - action: utter_intro_delibot
-  - intent: confirm_intro
-  - action: utter_present_scenario
-  - intent: confirm_scenario_read
-  - action: stakeholders_form
-  - active_loop: stakeholders_form
-  # - wait_for_user_input: false
-  - action: vitalvalue_form
-  - active_loop: vitalvalue_form
-  # - wait_for_user_input: false
   - action: ethicalram_form
-  - active_loop: ethicalram_form
-  # - wait_for_user_input: false
+  - active_loop: null
   - action: utter_ask_options
   - intent: confirm_option_chosen_autonomy
   - action: utter_ask_option_reasons_autonomy
   - intent: confirm_option_reason_chosen
-  - action: stakeholders_form
-  - active_loop: stakeholders_form
-  # - wait_for_user_input: false
-  - action: vitalvalue_form
-  - active_loop: vitalvalue_form
-  # - wait_for_user_input: false
-  - action: ethicalram_form
-  - active_loop: ethicalram_form
-  # - wait_for_user_input: false
-  - action: utter_ask_ai_impact
-  - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  # - wait_for_user_input: false
+  - action: earlierdec_form
+  - active_loop: earlierdec_form
+  wait_for_user_input: false
   
-  
-- rule: earlierdec given
+- rule: earlierdec given, stakeholderdis
   condition:
     - active_loop: earlierdec_form
   steps:
   - action: earlierdec_form
   - active_loop: null
-  - action: action_save_session
-  - action: utter_thank_reflection
-  - action: utter_final_close_session
+  - action: stakeholderdis_form
+  - active_loop: stakeholderdis_form
   wait_for_user_input: false
   
-- rule: stakeholderdis given
+- rule: stakeholderdis given, explorealt
   condition:
     - active_loop: stakeholderdis_form
   steps:
   - action: stakeholderdis_form
   - active_loop: null
-  - action: action_save_session
-  - action: utter_thank_reflection
-  - action: utter_final_close_session
+  - action: explorealt_form
+  - active_loop: explorealt_form
   wait_for_user_input: false
   
 - rule: explorealt given
@@ -226,68 +136,6 @@ rules:
   steps:
   - action: explorealt_form
   - active_loop: null
-  - action: action_save_session
   - action: utter_thank_reflection
-  - action: utter_final_close_session
-  wait_for_user_input: false
-  
-# - rule: Choose option Yes or No
-#     steps:
-#       - intent: option_yesno
-#       - action: utter_option_yesno
-      
-# - rule: Choose Yes
-#     steps:
-#     -intent: /choose_option{"option":"Yes"}
-#     -action: action_handle_yes
-    
-#   - rule: Choose No
-#       steps:
-#       -intent: /choose_option{"option":"No"}
-#       -action: action_handle_no  
-      
-- rule: reflection given
-  condition:
-    - active_loop: reflection_form
-  steps:
-  - action: reflection_form
-  - active_loop: null
   - action: action_save_session
-  - action: utter_thank_reflection
   - action: utter_final_close_session
-  wait_for_user_input: false
-  
-  
-#   #post-deliberation session
-# - rule: start session postdeliberation accountability
-#   steps:
-#   - intent: start_session_postdeliberation
-#   - action: utter_intro_delibot
-#   - intent: confirm_intro
-#   - action: utter_present_scenario_post
-#   - intent: confirm_scenario_read
-#   - action: utter_ask_options_post
-#   - intent: confirm_option_chosen_post_accountability
-#   - action: utter_ask_option_reasons_post_accountability
-#   - intent: confirm_option_reason_chosen_post
-#   - action: utter_ask_alternatives_accountability
-  
-  
-# - rule: alternative, accountability
-#   steps:
-#   - intent: confirm_alternative_yes
-#   - action: utter_ask_options_post
-#   - intent: confirm_option_chosen_post_accountability
-#   - action: utter_ask_option_reasons_post_accountability
-#   - intent: confirm_option_reason_chosen_post
-#   - action: utter_ask_alternatives_accountability
-  
-  
-- rule: no alternative
-  steps:
-  - intent: confirm_alternative_no 
-  - action: utter_ask_ai_impact
-  - intent: confirm_ai_impact
-  - action: reflection_form
-  - active_loop: reflection_form
-  wait_for_user_input: false

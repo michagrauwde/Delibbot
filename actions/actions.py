@@ -106,7 +106,14 @@ class ActionSaveSession(Action):
             userid = tracker.current_state()['sender_id']
             session_num = tracker.get_slot("session_num")
 
-            slots_to_save = ["chosen_option", "chosen_option_reason", "reflection_slot", "stakeholders_slot","vitalvalue_slot", "ethicalram_slot", "earlierdec_slot", "stakeholderdis_slot", "explorealt_slot"]
+            slots_to_save = ["stakeholders_slot",
+                             "vitalvalue_slot", 
+                             "ethicalram_slot", 
+                             "chosen_option", 
+                             "chosen_option_reason", 
+                             "earlierdec_slot", 
+                             "stakeholderdis_slot", 
+                             "explorealt_slot"]
             for slot in slots_to_save:
 
                 save_sessiondata_entry(cur, conn, userid, session_num,
@@ -123,27 +130,6 @@ class ActionSaveSession(Action):
 
         return []
 
-
-class ValidatereflectionForm(FormValidationAction):
-    def name(self) -> Text:
-        return 'validate_reflection_form'
-
-    def validate_reflection_slot(
-            self, value: Text, dispatcher: CollectingDispatcher,
-            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
-        # pylint: disable=unused-argument
-        """Validate reflection_slot input."""
-        last_utterance = get_latest_bot_utterance(tracker.events)
-
-        if last_utterance != 'utter_ask_reflection_slot':
-            return {"reflection_slot": None}
-
-        # people should type a bit more
-        if not len(value) >= 10:
-            dispatcher.utter_message(response="utter_provide_more_detail")
-            return {"reflection_slot": None}
-
-        return {"reflection_slot": value}
     
 class ValidatestakeholdersForm(FormValidationAction):
     def name(self) -> Text:
