@@ -219,7 +219,8 @@ responses:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"autonomy 4"}
       title: "The housing cooperation is monitoring the entire neighbourhood to catch a few bad apples. "
     text: "Why did you make this choice?"
-
+  utter_thanks_reason_chosen:
+  - text: "I see!"
 
   utter_ask_earlierdec_slot:
   - text: "Can you further explore your earlier decision?"
@@ -243,7 +244,6 @@ responses:
   - text: "Hmm, can you describe this in a bit more detail?"
   - text: "I see, could you elaborate a little more on this?"
   - text: "I'd like to understand better, can you give me more details on this?"
-  
   
   utter_final_close_session:
   - text: "THIS IS THE END OF THIS SESSION. PLEASE CLOSE THIS WINDOW."

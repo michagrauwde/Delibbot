@@ -51,20 +51,7 @@ rules:
   - intent: confirm_option_chosen_safety
   - action: utter_ask_option_reasons_safety
   - intent: confirm_option_reason_chosen
-  - action: earlierdec_form
-  - active_loop: earlierdec_form
-  wait_for_user_input: false
-  
-- rule: ramifications given, safety
-  condition:
-    - active_loop: ethicalram_form
-  steps:
-  - action: ethicalram_form
-  - active_loop: null
-  - action: utter_ask_options
-  - intent: confirm_option_chosen_safety
-  - action: utter_ask_option_reasons_safety
-  - intent: confirm_option_reason_chosen
+  - action: utter_thanks_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
   wait_for_user_input: false
@@ -79,6 +66,7 @@ rules:
   - intent: confirm_option_chosen_privacy
   - action: utter_ask_option_reasons_privacy
   - intent: confirm_option_reason_chosen
+  - action: utter_thanks_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
   wait_for_user_input: false
@@ -93,6 +81,7 @@ rules:
   - intent: confirm_option_chosen_societal_wellbeing
   - action: utter_ask_option_reasons_societal_wellbeing
   - intent: confirm_option_reason_chosen
+  - action: utter_thanks_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
   wait_for_user_input: false
@@ -107,6 +96,7 @@ rules:
   - intent: confirm_option_chosen_autonomy
   - action: utter_ask_option_reasons_autonomy
   - intent: confirm_option_reason_chosen
+  - action: utter_thanks_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
   wait_for_user_input: false
