@@ -88,7 +88,7 @@ rules:
   - intent: confirm_ai_impact
   - action: reflection_form
   - active_loop: reflection_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   
   
 - rule: start session predeliberation privacy
@@ -124,7 +124,7 @@ rules:
   - intent: confirm_ai_impact
   - action: reflection_form
   - active_loop: reflection_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   
 
 - rule: start session predeliberation societal wellbeing
@@ -160,7 +160,7 @@ rules:
   - intent: confirm_ai_impact
   - action: reflection_form
   - active_loop: reflection_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   
 - rule: start session predeliberation autonomy
   steps:
@@ -195,7 +195,7 @@ rules:
   - intent: confirm_ai_impact
   - action: reflection_form
   - active_loop: reflection_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   
   
 - rule:
