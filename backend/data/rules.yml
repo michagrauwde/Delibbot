@@ -15,6 +15,7 @@ rules:
   - action: utter_intro_delibot
   - intent: confirm_intro
   - action: utter_present_scenario
+  - action: utter_present_scenario_confirm
   - intent: confirm_scenario_read
   - action: stakeholders_form
   - active_loop: stakeholders_form
