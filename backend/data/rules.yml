@@ -42,7 +42,7 @@ rules:
   - action: utter_final_close_session
   wait_for_user_input: false
   
-- rule:ethicalram given
+- rule: ethicalram given
   condition:
     - active_loop: ethicalram_form
   steps:
