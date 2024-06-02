@@ -64,26 +64,26 @@ rules:
   - action: stakeholders_form
   - active_loop: stakeholders_form
   # this is the issue
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: vitalvalue_form
   - active_loop: vitalvalue_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: ethicalram_form
   - active_loop: ethicalram_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: utter_ask_options
   - intent: confirm_option_chosen_safety
   - action: utter_ask_option_reasons_safety
   - intent: confirm_option_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: stakeholderdis_form
   - active_loop: stakeholderdis_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: explorealt_form
   - active_loop: explorealt_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: utter_ask_ai_impact
   - intent: confirm_ai_impact
   - action: reflection_form
@@ -100,26 +100,26 @@ rules:
   - intent: confirm_scenario_read
   - action: stakeholders_form
   - active_loop: stakeholders_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: vitalvalue_form
   - active_loop: vitalvalue_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: ethicalram_form
   - active_loop: ethicalram_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: utter_ask_options
   - intent: confirm_option_chosen_privacy
   - action: utter_ask_option_reasons_privacy
   - intent: confirm_option_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: stakeholderdis_form
   - active_loop: stakeholderdis_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: explorealt_form
   - active_loop: explorealt_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: utter_ask_ai_impact
   - intent: confirm_ai_impact
   - action: reflection_form
@@ -136,26 +136,26 @@ rules:
   - intent: confirm_scenario_read
   - action: stakeholders_form
   - active_loop: stakeholders_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: vitalvalue_form
   - active_loop: vitalvalue_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: ethicalram_form
   - active_loop: ethicalram_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: utter_ask_options
   - intent: confirm_option_chosen_societal_wellbeing
   - action: utter_ask_option_reasons_societal_wellbeing
   - intent: confirm_option_reason_chosen
   - action: earlierdec_form
   - active_loop: earlierdec_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: stakeholderdis_form
   - active_loop: stakeholderdis_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: explorealt_form
   - active_loop: explorealt_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: utter_ask_ai_impact
   - intent: confirm_ai_impact
   - action: reflection_form
@@ -171,26 +171,26 @@ rules:
   - intent: confirm_scenario_read
   - action: stakeholders_form
   - active_loop: stakeholders_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: vitalvalue_form
   - active_loop: vitalvalue_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: ethicalram_form
   - active_loop: ethicalram_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: utter_ask_options
   - intent: confirm_option_chosen_autonomy
   - action: utter_ask_option_reasons_autonomy
   - intent: confirm_option_reason_chosen
   - action: stakeholders_form
   - active_loop: stakeholders_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: vitalvalue_form
   - active_loop: vitalvalue_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: ethicalram_form
   - active_loop: ethicalram_form
-  - wait_for_user_input: false
+  # - wait_for_user_input: false
   - action: utter_ask_ai_impact
   - intent: confirm_ai_impact
   - action: reflection_form
