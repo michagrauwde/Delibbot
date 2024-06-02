@@ -78,7 +78,7 @@ slots:
         - active_loop: reflection_form  
         
   # for stakeholders open question
-  Stakeholders_slot:
+  stakeholders_slot:
     type: text
     initial_value: ''
     influence_conversation: false
@@ -88,7 +88,7 @@ slots:
         - active_loop: Stakeholders_form  
         
   # for vital value open question
-  VitalValue_slot:
+  vitalvalue_slot:
     type: text
     initial_value: ''
     influence_conversation: false
@@ -97,7 +97,7 @@ slots:
       conditions:
         - active_loop: VitalValue_form  
   #for ethical ramifications open question
-  EthicalRam_slot:
+  ethicarRam_slot:
     type: text
     initial_value: ''
     influence_conversation: false
@@ -107,7 +107,7 @@ slots:
         - active_loop: EthicalRam_form  
         
   # for earlier decision open question
-  EthicalDec_slot:
+  ethicaldec_slot:
     type: text
     initial_value: ''
     influence_conversation: false
@@ -117,7 +117,7 @@ slots:
         - active_loop: EthicalDec_form          
         
   #for stakeholder disagreements open question
-  StakeholderDis_slot:
+  stakeholderdis_slot:
     type: text
     initial_value: ''
     influence_conversation: false
@@ -128,7 +128,7 @@ slots:
         
         
   #for the exploring alternatives open question
-  ExploreAlt_slot:
+  explorealt_slot:
     type: text
     initial_value: ''
     influence_conversation: false
@@ -142,29 +142,29 @@ forms:
    required_slots:
     - reflection_slot
         
-  Stakeholders_form:
+  stakeholders_form:
    required_slots:
-    - Stakeholders_slot
+    - stakeholders_slot
   
-  VitalValue_form:
+  vitalvalue_form:
    required_slots:
-    - VitalValue_slot  
+    - vitalvalue_slot  
 
-  EthicalRam_form:
+  ethicalram_form:
    required_slots:
-    - EthicalRam_slot
+    - ethicalram_slot
         
-  EarlierDec_form:
+  earlierdec_form:
    required_slots:
-    - EarlierDec_slot        
+    - earlierdec_slot        
         
-  StakeholderDis_form:
+  stakeholderdis_form:
    required_slots:
-    - StakehodlerDis_slot 
+    - stakehodlerdis_slot 
         
-  ExploreAlt_form:
+  explorealt_form:
    required_slots:
-    - ExploreAlt_slot               
+    - explorealt_slot               
 
 
 responses:
@@ -188,13 +188,13 @@ responses:
         "Should the facial recognition system be used? Consider the stakeholders, their positions, and ethical ramifications. Values at play include privacy, safety, freedom, and societal wellbeing. Moral dilemmas and risks are also present, such as privacy vs. safety and perception of safety vs. privacy."
         "Please review the scenario and we can discuss it further."
 
-  utter_ask_Stakeholders_slot:
+  utter_ask_stakeholders_slot:
   - text: "Who are the stakeholders involved? (e.g., police, NGOs, government, academia, industry, public)"
 
-  utter_ask_VitalValue_slot:
+  utter_ask_vitalvalue_slot:
   - text: "What is the most important value in this scenario? (privacy, autonomy, safety, societal wellbeing, etc.)"
 
-  utter_ask_EthicalRam_slot:
+  utter_ask_ethicalram_slot:
   - text: "What are the ethical implications and ramifications?"
 
   # utter_ask_option_yesno: 
@@ -270,13 +270,13 @@ responses:
 
   # utter_ask_reflection_slot:
   # - text: "Can you expand on why AI did or did not impact your decision? Which values impacted your choices?"
-  utter_ask_EarlierDec_slot:
+  utter_ask_earlierdec_slot:
   - text: "Can you further explore your earlier decision?"
-  utter_ask_StakeholderDis_slot:
+  utter_ask_stakeholderdis_slot:
   - text: "Can you outline a position of another stakeholder in the scenario that may disagree with your position?"
   utter_ask_reflection_slot:
   - text: "What may they do in this scenario?"
-  utter_ask_ExploreAlt_slot:
+  utter_ask_explorealt_slot:
   - text: "Would you change your choice based on exploring other alternatives throughout this conversation?"
   utter_thank_reflection:
   - text: "Thank you for sharing your reflection and interacting with me."

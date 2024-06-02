@@ -124,7 +124,7 @@ class ActionSaveSession(Action):
         return []
 
 
-class ValidateReflectionForm(FormValidationAction):
+class ValidatereflectionForm(FormValidationAction):
     def name(self) -> Text:
         return 'validate_reflection_form'
 
@@ -145,11 +145,11 @@ class ValidateReflectionForm(FormValidationAction):
 
         return {"reflection_slot": value}
     
-class ValidateStakeholdersForm(FormValidationAction):
+class ValidatestakeholdersForm(FormValidationAction):
     def name(self) -> Text:
         return 'validate_stakeholders_form'
 
-    def validate_Stakeholders_slot(
+    def validate_stakeholders_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
@@ -166,11 +166,11 @@ class ValidateStakeholdersForm(FormValidationAction):
 
         return {"stakeholders_slot": value}
 
-class ValidateVitalValueForm(FormValidationAction):
+class ValidatevitalvalueForm(FormValidationAction):
     def name(self) -> Text:
         return 'validate_vitalvalue_form'
 
-    def validate_VitalValue_slot(
+    def validate_vitalvalue_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
@@ -187,11 +187,11 @@ class ValidateVitalValueForm(FormValidationAction):
 
         return {"vitalvalue_slot": value}
 
-class ValidateEthicalRamForm(FormValidationAction):
+class ValidateethicalramForm(FormValidationAction):
     def name(self) -> Text:
         return 'validate_ethicalram_form'
 
-    def validate_EthicalRam_slot(
+    def validate_ethicalram_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
@@ -208,11 +208,11 @@ class ValidateEthicalRamForm(FormValidationAction):
 
         return {"ethicalram_slot": value}
     
-class ValidateEarlierDecForm(FormValidationAction):
+class ValidateearlierdecForm(FormValidationAction):
     def name(self) -> Text:
         return 'validate_earlierdec_form'
 
-    def validate_EarlierDec_slot(
+    def validate_earlierdec_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
@@ -229,11 +229,11 @@ class ValidateEarlierDecForm(FormValidationAction):
 
         return {"earlierdec_slot": value}
 
-class ValidateStakeholderDisForm(FormValidationAction):
+class ValidatestakeholderdisForm(FormValidationAction):
     def name(self) -> Text:
         return 'validate_stakeholderdis_form'
 
-    def validate_StakeholderDis_slot(
+    def validate_stakeholderdis_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
@@ -250,11 +250,11 @@ class ValidateStakeholderDisForm(FormValidationAction):
 
         return {"stakeholderdis_slot": value}
     
-class ValidateExploreAltForm(FormValidationAction):
+class ValidateexplorealtForm(FormValidationAction):
     def name(self) -> Text:
         return 'validate_explorealt_form'
 
-    def validate_ExploreAlt_slot(
+    def validate_explorealt_slot(
             self, value: Text, dispatcher: CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
         # pylint: disable=unused-argument
