@@ -109,10 +109,6 @@ slots:
         - active_loop: explorealt_form  
         
 forms:
-  reflection_form:
-   required_slots:
-    - reflection_slot
-        
   stakeholders_form:
    required_slots:
     - stakeholders_slot
