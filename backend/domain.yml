@@ -127,7 +127,7 @@ forms:
         
   stakeholderdis_form:
    required_slots:
-    - stakehodlerdis_slot 
+    - stakeholderdis_slot 
         
   explorealt_form:
    required_slots:
