@@ -268,8 +268,8 @@ responses:
     text: "Do you feel like AI systems improve public safety?"
 
 
-  # utter_ask_reflection_slot:
-  # - text: "Can you expand on why AI did or did not impact your decision? Which values impacted your choices?"
+  utter_ask_reflection_slot:
+  - text: "Can you expand on why AI did or did not impact your decision? Which values impacted your choices?"
   utter_ask_earlierdec_slot:
   - text: "Can you further explore your earlier decision?"
   utter_ask_stakeholderdis_slot:
