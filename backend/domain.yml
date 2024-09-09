@@ -179,7 +179,7 @@ forms:
     - dig_deeper_slot
     
   diff_stakeholder_form:
-    requierd_slots:
+    required_slots:
     - diff_stakeholder_slot
     
   altoptions_form:
