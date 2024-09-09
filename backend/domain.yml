@@ -353,24 +353,24 @@ responses:
        value: "societal wellbeing 4"
     text: "I think you believe that such a system would lead to less trust between neighbours."
   - condition: 
-      - type: 
-        name: chosen_option_reason
-        value: "autonomy 1"
+     - type: 
+       name: chosen_option_reason
+       value: "autonomy 1"
     text: "You seem to think that the system removes your sense of control over your environment."
   - condition: 
-      - type: 
-        name: chosen_option_reason
-        value: "autonomy 2
+     - type: 
+       name: chosen_option_reason
+       value: "autonomy 2
     text: "You seem to think that the system is going to presume that you are guilty and that you will always be watched with a presumption of guilt."
   - condition: 
-      - type: 
-        name: chosen_option_reason
-        value: "autonomy 3"
+     - type: 
+       name: chosen_option_reason
+       value: "autonomy 3"
     text: "It looks like you are unsure about the system's use and where the data is going to go to."
   - condition: 
-      - type: 
-        name: chosen_option_reason
-        value: "autonomy 4"
+     - type: 
+       name: chosen_option_reason
+       value: "autonomy 4"
     text: "You are concerned that the system is being used watch the entire neighbourhood and you even though you've done nothing wrong, you can be monitored."
 
     
