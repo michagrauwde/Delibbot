@@ -360,7 +360,7 @@ responses:
   - condition: 
       - type: 
         name: chosen_option_reason
-        value: "autonomy 2
+        value: "autonomy 2"
     text: "You seem to think that the system is going to presume that you are guilty and that you will always be watched with a presumption of guilt."
   - condition: 
       - type: 
