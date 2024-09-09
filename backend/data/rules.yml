@@ -108,7 +108,7 @@ rules:
   - action: earlierdec_form
   - active_loop: null
   - action: dig_deeper_form
-  -active_loop: dig_deeper_form
+  - active_loop: dig_deeper_form
   wait_for_user_input: false
   
 - rule: dig_deeper given, stakeholderdis
