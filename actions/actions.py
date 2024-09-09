@@ -188,7 +188,7 @@ class ValidateethicalramForm(FormValidationAction):
             return {"ethicalram_slot": None}
 
         # people should type a bit more
-        if not len(value) >= 10:
+        if not len(value) >= 20:
             dispatcher.utter_message(response="utter_provide_more_detail")
             return {"ethicalram_slot": None}
 
@@ -209,8 +209,8 @@ class ValidateearlierdecForm(FormValidationAction):
             return {"earlierdec_slot": None}
 
         # people should type a bit more
-        if not len(value) >= 10:
-            dispatcher.utter_message(response="utter_provide_more_detail")
+        if not len(value) >= 20:
+            dispatcher.utter_message(response="utter_expand_your_answer")
             return {"earlierdec_slot": None}
 
         return {"earlierdec_slot": value}
@@ -231,7 +231,7 @@ class ValidatestakeholderdisForm(FormValidationAction):
 
         # people should type a bit more
         if not len(value) >= 10:
-            dispatcher.utter_message(response="utter_provide_more_detail")
+            dispatcher.utter_message(response="utter_rephrase")
             return {"stakeholderdis_slot": None}
 
         return {"stakeholderdis_slot": value}
@@ -252,9 +252,71 @@ class ValidateexplorealtForm(FormValidationAction):
 
         # people should type a bit more
         if not len(value) >= 10:
-            dispatcher.utter_message(response="utter_provide_more_detail")
+            dispatcher.utter_message(response="utter_rephrase")
             return {"explorealt_slot": None}
 
         return {"explorealt_slot": value}
     
     
+class ValidateDig_deeper_Form(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_dig_deeper_form'
+
+    def validate_dig_deeper_slot(
+            self, value: Text, dispatcher: CollectingDispatcher,
+            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        # pylint: disable=unused-argument
+        """Validate dig_deeper_slot input."""
+        last_utterance = get_latest_bot_utterance(tracker.events)
+
+        if last_utterance != 'utter_ask_dig_deeper_slot':
+            return {"dig_deeper_slot": None}
+
+        # people should type a bit more
+        if not len(value) >= 10:
+            dispatcher.utter_message(response="utter_provide_more_detail")
+            return {"dig_deeper_slot": None}
+
+        return {"dig_deeper_slot": value}
+    
+class ValidateDiff_stakeholderForm(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_diff_stakeholder_form'
+
+    def validate_diff_stakeholder_slot(
+            self, value: Text, dispatcher: CollectingDispatcher,
+            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        # pylint: disable=unused-argument
+        """Validate diff_stakeholder_slot input."""
+        last_utterance = get_latest_bot_utterance(tracker.events)
+
+        if last_utterance != 'utter_ask_diff_stakeholder_slot':
+            return {"diff_stakeholder_slot": None}
+
+        # people should type a bit more
+        if not len(value) >= 10:
+            dispatcher.utter_message(response="utter_provide_more_detail")
+            return {"diff_stakeholder_slot": None}
+
+        return {"diff_stakeholder_slot": value}
+    
+class ValidateAltOptionsForm(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_altoptions_form'
+
+    def validate_altoptions_slot(
+            self, value: Text, dispatcher: CollectingDispatcher,
+            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        # pylint: disable=unused-argument
+        """Validate altoptions_slot input."""
+        last_utterance = get_latest_bot_utterance(tracker.events)
+
+        if last_utterance != 'utter_ask_altoptions_slot':
+            return {"altoptions_slot": None}
+
+        # people should type a bit more
+        if not len(value) >= 10:
+            dispatcher.utter_message(response="utter_rephrase")
+            return {"altoptions_slot": None}
+
+        return {"altoptions_slot": value}

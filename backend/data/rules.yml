@@ -27,22 +27,24 @@ rules:
   - active_loop: stakeholders_form
   wait_for_user_input: false
   
-- rule: stakeholders given and ask about value
+- rule: stakeholders given, acknowledge and ask about value
   condition:
     - active_loop: stakeholders_form
   steps:
   - action: stakeholders_form
   - active_loop: null
+  - action: utter_stakeholder_acknowledge
   - action: vitalvalue_form
   - active_loop: vitalvalue_form
   wait_for_user_input: false
   
-- rule: values given and ask about ramifications
+- rule: values given, acknowledge, and ask about ramifications, acknowledge and continue convo
   condition:
     - active_loop: vitalvalue_form
   steps:
   - action: vitalvalue_form
   - active_loop: null
+  - action: utter_value_acknowledge
   - action: ethicalram_form
   - active_loop: ethicalram_form
   wait_for_user_input: false
@@ -53,6 +55,7 @@ rules:
   steps:
   - action: ethicalram_form
   - active_loop: null
+  - action: utter_consider_ethicals_acknowledge
   - action: utter_ask_options
   - intent: confirm_option_chosen_safety
   - action: utter_ask_option_reasons_safety
@@ -63,6 +66,7 @@ rules:
   steps:
   - action: ethicalram_form
   - active_loop: null
+  - action: utter_consider_ethicals_acknowledge
   - action: utter_ask_options
   - intent: confirm_option_chosen_privacy
   - action: utter_ask_option_reasons_privacy
@@ -73,6 +77,7 @@ rules:
   steps:
   - action: ethicalram_form
   - active_loop: null
+  - action: utter_consider_ethicals_acknowledge
   - action: utter_ask_options
   - intent: confirm_option_chosen_societal_wellbeing
   - action: utter_ask_option_reasons_societal_wellbeing
@@ -83,6 +88,7 @@ rules:
   steps:
   - action: ethicalram_form
   - active_loop: null
+  - action: utter_consider_ethicals_acknowledge
   - action: utter_ask_options
   - intent: confirm_option_chosen_autonomy
   - action: utter_ask_option_reasons_autonomy
@@ -95,32 +101,74 @@ rules:
   - active_loop: earlierdec_form
   wait_for_user_input: false
 
-- rule: earlierdec given, stakeholderdis
+- rule: earlierdec given, dig_deeper
   condition:
     - active_loop: earlierdec_form
   steps:
   - action: earlierdec_form
   - active_loop: null
+  - action: dig_deeper_form
+  -active_loop: dig_deeper_form
+  wait_for_user_input: false
+  
+- rule: dig_deeper given, stakeholderdis
+  condition: 
+      - active_loop: dig_deeper_form
+  steps: 
+  - action: dig_deeper_form
+  - active_loop: null
   - action: stakeholderdis_form
   - active_loop: stakeholderdis_form
   wait_for_user_input: false
   
-- rule: stakeholderdis given, explorealt
+- rule: stakeholderdis given, diff_stakeholder
   condition:
     - active_loop: stakeholderdis_form
   steps:
   - action: stakeholderdis_form
   - active_loop: null
+  - action: diff_stakeholder_form
+  - active_loop: diff_stakeholder_form
+  wait_for_user_input: false
+  
+- rule: diff_stakeholder given, explorealt
+  condition: 
+    - active_loop: diff_stakeholder_form
+  steps:
+  - action: diff_stakeholder_form
+  - active_loop: null
   - action: explorealt_form
   - active_loop: explorealt_form
   wait_for_user_input: false
   
-- rule: explorealt given
+- rule: explorealt given, altoptions
   condition:
     - active_loop: explorealt_form
   steps:
   - action: explorealt_form
   - active_loop: null
+  - action: altoptions_form
+  - active_loop: altoptions_form
+  wait_for_user_input: false
+  
+- rule: altoptions given, breakdown
+  condition:
+    - active_loop: altoptions_form
+  steps:
+  - action: altoptions_form
+  - active_loop: null
+  - action: breakdown_form
+  - active_loop: breakdown
+  wait_for_user_input: false
+  
+- rule: breakdown given, reflection 
+  condition: 
+    - active_loop: breakdown_form
+  steps: 
+  - action: breakdown_form
+  - active_loop: null
   - action: utter_thank_reflection
   - action: action_save_session
   - action: utter_final_close_session
+  
+  
