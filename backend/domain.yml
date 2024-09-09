@@ -136,7 +136,19 @@ slots:
         - type: from_text
           conditions:
             - active_loop: altoptions_form 
-        
+            
+# breakdown slots:
+  breakdown_slot:
+        type: text
+        initial_value: ''
+        influence_conversation: false
+        mappings:
+        - type: from_text
+          conditions:
+            - active_loop: breakdown_form 
+            
+            
+# forms needed for the conversation
 forms:
   stakeholders_form:
    required_slots:
@@ -172,7 +184,11 @@ forms:
     
   altoptions_form:
     required_slots:
-    - altoptions_slot      
+    - altoptions_slot  
+
+  breakdown_form:
+    required_slots:
+    - breakdown_slot    
 
 
 responses:
@@ -381,6 +397,67 @@ responses:
   utter_ask_altoptions_slot:
   - text: "Why do you consider your position, most important still throughout this conversation?"
   
+  utter_ask_breakdown_slot:
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "safety"
+    text: "It seems that you find autonomy to be important due your decision you made earlier, is this true, can you expand on this?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "safety"
+    text: "I agree with your earlier decision that privacy is the most important, is that right? Is that still the case?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "safety"
+    text: "Throughout this decision, I've recognised societal wellbeing as your most important value, is that right and is that still the case after the conversation?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "privacy"
+    text: "Safety truly is the most important value, as you mentioned earlier. Do you still consider it the most important value in this scenario?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "privacy"
+    text: "When I analysed your answers earlier, I found societal wellbeing to be the most important for you, do you still believe it is?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "privacy"
+    text: "Autonomy has been very important throughout our conversation, do you find that still the most important value in the scenario?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "autonomy"
+    text: "Privacy has remained vital throughout the conversation for you, do you still believe it is the most important value to consider?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "autonomy"
+    text: "Societal Wellbeing for you seems to shine throughout our conversation over other values, is this still the case?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "autonomy"
+    text: "Safety is important as we've spoken to keep the peace with such systems, is that still the most important value for you?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "societal wellbeing"
+    text: "I've analysed your answers throughout our conversation and I realise that you find privacy most important based on your initial decision, do you still consider it the most important."
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "societal wellbeing"
+    text: "You chose safety earlier to be your most important value, do you still think that is true now?"
+  - condition: 
+      - type: 
+        name: chosen_option
+        value: "societal wellbeing"
+    text: "I remembered that you chose Autonomy in your earlier answer, is that still the most important value for you to consider in this scenario?"
 
   utter_thank_reflection:
   - text: "Thank you for sharing your reflections and interacting with me."
@@ -425,6 +502,7 @@ actions:
 - validate_dig_deeper_form
 - validate_diff_stakeholder_form
 - validate_altoptions_form
+- validate_breakdown_form
 
 - action_end_dialog
 - action_default_fallback_end_dialog

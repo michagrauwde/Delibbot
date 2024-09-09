@@ -320,3 +320,24 @@ class ValidateAltOptionsForm(FormValidationAction):
             return {"altoptions_slot": None}
 
         return {"altoptions_slot": value}
+    
+class ValidateBreakdownForm(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_breakdown_form'
+
+    def validate_breakdown_slot(
+            self, value: Text, dispatcher: CollectingDispatcher,
+            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        # pylint: disable=unused-argument
+        """Validate breakdown_slot input."""
+        last_utterance = get_latest_bot_utterance(tracker.events)
+
+        if last_utterance != 'utter_ask_breakdown_slot':
+            return {"breakdown_slot": None}
+
+        # people should type a bit more
+        if not len(value) >= 20:
+            dispatcher.utter_message(response="utter_rephrase")
+            return {"breakdown_slot": None}
+
+        return {"breakdown_slot": value}
