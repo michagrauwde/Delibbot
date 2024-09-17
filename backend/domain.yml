@@ -217,7 +217,7 @@ responses:
   utter_ask_stakeholders_slot:
   - text: |
         "Great! Thanks for your answers! I have some questions for you now!" 
-        "Who are the stakeholders involved in this scenario? (e.g. police, NGOs, government, academia, industry, public)  
+        "Who are the stakeholders involved in this scenario? (e.g. police, NGOs, government, researchers, industry, public)  
         "Consider this from your particular perspective."
   utter_stakeholder_acknowledge:
   - text: "That's interesting, we can explore this further in the conversation."
@@ -253,25 +253,25 @@ responses:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 3"}
       title: "As a resident, I feel safer knowing that if something goes wrong, they can figure out the culprits."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"safety 4"}
-      title: "The police does their job well to secure the neighbourhood and so this would allow them to continue to do a good job."
+      title: "The police does their job well to secure the neighbourhood. This would allow them to continue to do a good job."
     text: "I see you are concerned about preserving peace in the neighbourhood, why is this so important to you?"
   utter_ask_option_reasons_privacy:
   - buttons:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 1"}
-      title: "As a resident, I don’t trust the organisations involved to use the system for its purpose."
+      title: "As a resident, I don’t trust the organisations involved to use the system only for its purpose."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 2"}
       title: "When is someone added to this list of people and how is this list administered?"
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 3"}
-      title: "I would support this system if it was used to catch high profile crimes like terrorism, but for times like jaywalking, it does not seem worth the risk."
+      title: "I would support this system if it was used to catch crimes like terrorism, but for times like jaywalking, it does not seem worth the risk."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"privacy 4"}
-      title: "The system can start off being used for one reason but if crimes increase, they can be used for other reasons than those intended "
+      title: "I do not know if this system is connected to other networked systems in the country that make it easier for me to be tracked everywhere else."
     text: "I see that you are not trusting of the system or how it is used by the housing association, can you delve deeper into why this is?"
   utter_ask_option_reasons_societal_wellbeing:
   - buttons:
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 1"}
       title: "The system is administered by police and housing cooperations who want to improve the neighbourhood."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 2"}
-      title: "If people feel that they are being watched, they may not act how they normally would."
+      title: "If people feel that they are being watched, they may not act how they normally would, which increases psychological pressure."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 3"}
       title: "The system projects a form of invasion into the neighbourhood as users are always surveilled."
     - payload: /confirm_option_reason_chosen{"chosen_option_reason":"societal wellbeing 4"}
