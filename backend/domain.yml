@@ -202,11 +202,7 @@ responses:
   utter_present_scenario:
   - text: | 
         "Here is a scenario:"
-        "Housing Cooperation Woonstad Rotterdam implemented a camera system throughout their properties. However, now they are planning to implement facial recognition." 
-        "Some residents have concerns about privacy and constant monitoring."
-        "Woonstad Rotterdam justifies this by referring to the increase in local robberies, believing the system will enhance safety and aid police in solving crimes."
-        "Residents argue that the system infringes on their privacy and freedom. They are uncertain about the data usage and sharing with third parties."
-        "Woonstad Rotterdam assures that images will only be analyzed in case of crimes and are solely for safety purposes."
+        "Housing Cooperation Woonstad Rotterdam implemented a camera system throughout their properties. However, now they are planning to implement facial recognition. Some residents have concerns about privacy and constant monitoring. Woonstad Rotterdam justifies this by referring to the increase in local robberies, believing the system will enhance safety and aid police in solving crimes. Residents argue that the system infringes on their privacy and freedom. They are uncertain about the data usage and sharing with third parties. Woonstad Rotterdam assures that images will only be analyzed in case of crimes and are solely for safety purposes."
         "Should the facial recognition system be used?"
         "Consider the stakeholders, their positions, and ethical ramifications. Some of these stakeholders may be the housing cooperation, residents, academia, and industry." 
         "Some values that might matter are privacy, safety, freedom, and societal wellbeing."
@@ -219,7 +215,8 @@ responses:
   
   
   utter_ask_stakeholders_slot:
-  - text: | 
+  - text: |
+        "Great! Thanks for your answers! I have some questions for you now!" 
         "Who are the stakeholders involved in this scenario? (e.g. police, NGOs, government, academia, industry, public)  
         "Consider this from your particular perspective."
   utter_stakeholder_acknowledge:
@@ -234,7 +231,7 @@ responses:
   utter_ask_ethicalram_slot:
   - text: "What are the ethical problems?"
   utter_consider_ethicals_acknowledge:
-  - text: "Thanks for naming those. There are many ethical problems in this scenario that we can look at as we talk."
+  - text: "Thanks for these insights! There are many ethical problems in this scenario that we can look at as we talk."
 
   utter_ask_options:
   - buttons:
@@ -376,13 +373,13 @@ responses:
     
 
   utter_ask_earlierdec_slot:
-  - text: "Thank you for your response, can you explore the choice you made earlier? Do these still line up?"
+  - text: "Thank you for your response! Can you explore the choice you made earlier? Does this still line up?"
   
   # digging deepah
   utter_ask_dig_deeper_slot:
-  - text: "why do you feel this way? Where did your initial thoughts come from?"
+  - text: "Why do you feel this way? Where did your initial thoughts come from?"
   utter_ask_stakeholderdis_slot:
-  - text: "That's interesting, can you maybe also outline a position of another stakeholder in the scenario that may disagree with your position?"
+  - text: "That's really interesting! Can you maybe also outline a position of another stakeholder in the scenario that may disagree with your position?"
   
     # digging deepah
   utter_ask_diff_stakeholder_slot:
@@ -402,17 +399,17 @@ responses:
       - type: 
         name: chosen_option
         value: "safety"
-    text: "It seems that you find autonomy to be important due your decision you made earlier, is this true, can you expand on this?"
+    text: "It seems that you find Autonomy to be important due your decision you made earlier, is this true, can you expand on this?"
   - condition: 
       - type: 
         name: chosen_option
         value: "safety"
-    text: "I agree with your earlier decision that privacy is the most important, is that right? Is that still the case?"
+    text: "I agree with your earlier decision that Privacy is the most important, is that right? Is that still the case?"
   - condition: 
       - type: 
         name: chosen_option
         value: "safety"
-    text: "Throughout this decision, I've recognised societal wellbeing as your most important value, is that right and is that still the case after the conversation?"
+    text: "Throughout this decision, I've recognised Societal Wellbeing as your most important value, is that right and is that still the case after the conversation?"
   - condition: 
       - type: 
         name: chosen_option
@@ -422,7 +419,7 @@ responses:
       - type: 
         name: chosen_option
         value: "privacy"
-    text: "When I analysed your answers earlier, I found societal wellbeing to be the most important for you, do you still believe it is?"
+    text: "When I analysed your answers earlier, I found Societal Wellbeing to be the most important for you, do you still believe it is?"
   - condition: 
       - type: 
         name: chosen_option
@@ -447,12 +444,12 @@ responses:
       - type: 
         name: chosen_option
         value: "societal wellbeing"
-    text: "I've analysed your answers throughout our conversation and I realise that you find privacy most important based on your initial decision, do you still consider it the most important."
+    text: "I've analysed your answers throughout our conversation and I realise that you find Privacy most important based on your initial decision, do you still consider it the most important."
   - condition: 
       - type: 
         name: chosen_option
         value: "societal wellbeing"
-    text: "You chose safety earlier to be your most important value, do you still think that is true now?"
+    text: "You chose Safety earlier to be your most important value, do you still think that is true now?"
   - condition: 
       - type: 
         name: chosen_option
